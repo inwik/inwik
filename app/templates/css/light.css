@@ -1,0 +1,34 @@
+body{
+	background-color:#ccc;
+}
+
+#container{
+	background-color:white;
+}
+
+aside{
+	background-color:#e6e6e6;
+	color:#222222;
+}
+
+article{
+	color:#333333;
+}
+
+article input{
+	border:1px solid #333333;
+}
+
+/*proposals*/
+
+#noaprob{
+	color:#333333;
+}
+
+#aprob{
+	color:#999999;
+}
+
+#aprob:hover{
+	color:#333333;
+}

@@ -1,0 +1,75 @@
+AddType application/x-web-app-manifest+json .webapp
+AddHandler x-web-app-manifest+json .webapp
+
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteBase /
+
+## hide .php extension
+# To externally redirect /dir/foo.php to /dir/foo
+#RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+#RewriteRule ^ %1 [R,L,NC]
+
+## To internally redirect /dir/foo to /dir/foo.php
+#RewriteCond %{REQUEST_FILENAME}.php -f
+#RewriteRule ^ %{REQUEST_URI}.php [L]
+
+###  Propuestas
+#  Entrada:  propuestas
+# Salida: index.php?section=proposals
+RewriteRule ^propuestas/?$ /index.php?section=proposals [L]
+# Entrada:  propuesta:ID->nombre$action=ACCION
+# Salida: index.php?section=proposals&id=id&action=ACCION
+RewriteRule ^/?propuesta:(.*)?action=(.*)$  index.php?section=proposals&id=$1&action=$2 [L]
+# Entrada:  propuesta:id->nombre
+# Salida: index.php?section=proposals&id=id
+# (del string 1234->luigi, se usa solo 1234)
+RewriteRule ^/?propuesta:(.*)$  index.php?section=proposals&id=$1 [L]
+# Entrada:  crear-propuesta:NOMBRE
+# Salida: index.php?section=proposals&id=0&title=NOMBRE
+RewriteRule ^/?crear-propuesta:(.*)$  index.php?section=proposals&id=0&title=$1 [L]
+# Entrada:  crear-propuesta
+# Salida: index.php?section=proposals&id=0
+RewriteRule ^/?crear-propuesta$  index.php?section=proposals&id=0 [L]
+
+###  Proyectos
+#  Entrada:  proyectos
+# Salida: index.php?section=projects
+RewriteRule ^proyectos/?$ /index.php?section=projects [L]
+# Entrada:  proyecto:ID->nombre$action=ACCION
+# Salida: index.php?section=projects&id=id&action=ACCION
+RewriteRule ^/?proyecto:(.*)?action=(.*)$  index.php?section=projects&id=$1&action=$2 [L]
+# Entrada:  proyecto:id->nombre
+# Salida: index.php?section=projects&id=id
+# (del string 1234->luigi, se usa solo 1234)
+RewriteRule ^/?proyecto:(.*)$  index.php?section=projects&id=$1 [L]
+# Entrada:  crear-proyecto:NOMBRE
+# Salida: index.php?section=projects&id=0&title=NOMBRE
+RewriteRule ^/?crear-proyecto:(.*)$  index.php?section=projects&id=0&title=$1 [L]
+# Entrada:  crear-proyecto
+# Salida: index.php?section=projects&id=0
+RewriteRule ^/?crear-proyecto$  index.php?section=projects&id=0 [L]
+
+###  Eventos
+#  Entrada:  eventos
+# Salida: index.php?section=events
+RewriteRule ^eventos/?$ /index.php?section=events [L]
+# Entrada:  evento:ID->nombre$action=ACCION
+# Salida: index.php?section=events&id=id&action=ACCION
+RewriteRule ^/?evento:(.*)?action=(.*)$  index.php?section=events&id=$1&action=$2 [L]
+# Entrada:  evento:id->nombre
+# Salida: index.php?section=events&id=id
+# (del string 1234->luigi, se usa solo 1234)
+RewriteRule ^/?evento:(.*)$  index.php?section=events&id=$1 [L]
+# Entrada:  crear-evento:NOMBRE
+# Salida: index.php?section=events&id=0&title=NOMBRE
+RewriteRule ^/?crear-evento:(.*)$  index.php?section=events&id=0&title=$1 [L]
+# Entrada:  crear-evento
+# Salida: index.php?section=events&id=0
+RewriteRule ^/?crear-evento$  index.php?section=events&id=0 [L]
+
+### Usuarios y restantes
+# Entrada:  /usuario:NOMBRE
+# Salida: index.php?section=users&user=NOMBRE
+RewriteRule ^/?usuario:(.*)$  index.php?section=users&user=$1 [L]

@@ -1,0 +1,53 @@
+/app-> (código específico de la aplicación)
+	/controllers->
+			/events.php
+			/login.php
+			/projects.php
+			/proposals.php
+			/timeline.php
+			/user.php
+    /core-> (archivos importantes para el nucleo y buen funcionamiento del sistema, configuraciones, etc.)
+            /config.php (database/server configuracion)
+	/models->
+			/event->
+				/event.class.php
+			/project->
+				/project.class.php
+			/proposal->
+				/proposal.class.php
+			/user->
+				/user.class.php
+    /templates->
+            /dark->
+                /style.css
+            /light->
+                /style.css
+            /header.php
+            /footer.php
+            /css->
+                /style.css
+            /js->
+                /scripts.js
+            /img->
+				/avatar
+				/icons
+				/layout
+    /helpers-> (modulos comunes para toda la pagina)
+	/views-> (páginas predefinidas, páginas de mensajes, etc.)
+            /error->
+                /404.php
+            /home->
+                /home.php                
+    /languages-> (traducciones)
+    
+    
+/documentation
+/vendor-> (librerias externas)
+    /phpMailer->
+    /phpgettext->
+/db->(copia de la estructura de la bd)
+/index.php
+/manifest.webapp
+/robots.txt
+/.htaccess
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   width="20"
+   height="20"
+   sodipodi:docname="share.svg"
+   inkscape:export-filename="/home/albertoi/Proyectos/WikiPartido/inwik/web/inwik/skins/common/images/options.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="16.68772"
+     inkscape:cx="12.950514"
+     inkscape:cy="16.269305"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     transform="matrix(0.86956522,0,0,0.86956522,-127.82609,-1.3043479)"
+     id="user_2_"
+     style="fill:#999999;fill-opacity:1">
+    <path
+       inkscape:connector-curvature="0"
+       id="user"
+       d="m 169,19.208 c -0.644,-0.366 -4.843,-2.851 -7,-3.724 v -3.777 c 0.624,-0.456 1,-1.158 1,-2.223 V 6.5 C 163,4.025 161.5,2 158.5,2 c -3,0 -4.5,2.025 -4.5,4.5 0,0 0,0.484 0,2.984 0,1.075 0.376,1.779 1,2.233 v 3.767 c -2.032,0.873 -6.356,3.357 -7,3.724 -0.801,0.455 -1,0.888 -1,1.94 0,0.43 0,2.352 0,2.352 0,0.275 0.225,0.5 0.5,0.5 h 22 c 0.275,0 0.5,-0.225 0.5,-0.5 0,0 0,-1.922 0,-2.352 0,-1.052 -0.199,-1.485 -1,-1.94 z"
+       style="fill:#999999;fill-opacity:1" />
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+{
+  "name": "inwik",
+  "description": "Plataforma social de participación política horizontal y crítica.",
+  "launch_path": "/",
+  "icons": {
+    "32": "/images/icons/icon32.png",
+    "60": "/images/icons/icon60.png",
+    "90": "/images/icons/icon90.png",   
+    "120": "/images/icons/icon120.png",
+    "128": "/images/icons/icon128.png",
+    "256": "/images/icons/icon256.png"
+  },
+  "developer": {
+    "name": "Darío Mehrgut Palenzuela",
+    "url": "http://inwik.org"
+  },
+  "default_locale": "es",
+  "fullscreen": "true",
+  "locales": {
+    "es": {
+      "description": "Plataforma social de participación política horizontal y crítica."
+    },
+    "en": {
+      "description": "Social platform of horizontally and critical political participation."
+    }
+  },
+  "orientation": ["portrait","landscape-secondary"],
+  "permissions": {
+    "storage": {
+      "description": "Required for save proposal offline"
+    }
+  }
+}

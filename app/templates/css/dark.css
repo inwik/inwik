@@ -1,0 +1,162 @@
+body{
+	background-color: #222;
+}
+
+h1,h2,h3,h4,h5,p,ul{
+	color:#bbb;
+}
+
+#container{
+	background-color:#333333;
+}
+
+#principal input, article input, article textarea, #editor{
+	border-color: #333333;
+	color: #ABABAB;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6) inset;
+	background: none repeat scroll 0 0 #222;
+}
+
+@media only screen and (max-width : 900px) {
+    #editor{
+        box-shadow:none;
+    }
+}
+
+aside{
+	background-color:#1a1a1a;
+}
+
+aside h4, aside p, #menu-mobile h4, #menu-mobile p{
+	color:#777777;
+}
+
+.aside-show-more{
+	color:white;
+}
+
+#aside-links a{
+	color:#777777;
+}
+
+article{
+	color:white;
+}
+
+section{
+	background-color:#282828;
+}
+/*proposals*/
+
+#proposals-viewer h1{
+	color: #DEDEDE;
+}
+
+#propnoaprob a{
+	color:white;
+}
+
+#propaprob a{
+	color:#aaaaaa;
+}
+
+#propaprob a:hover{
+	color:white;
+}
+
+#ordertype #desc{
+ 	background-image:url(images/desc-act.png);
+	opacity:0.5;
+}
+
+#ordertype #desc.active{
+	background-image:url(images/desc-act.png);
+	opacity:1;
+}
+
+#ordertype #desc:hover{
+	background-image:url(images/desc-act.png);
+	opacity:1;
+}
+
+#ordertype #asc{
+ 	background-image:url(images/asc-act.png);
+	opacity:0.5;
+}
+
+#ordertype #asc.active{
+	background-image:url(images/asc-act.png);
+	opacity:1;
+}
+
+#ordertype #asc:hover{
+	background-image:url(images/asc-act.png);
+	opacity:1;
+}
+
+.link-proposal a{
+	color:white;
+}
+
+.link-proposal a:hover{
+	text-decoration:underline;
+}
+
+.action-proposal a{
+	color:#999;
+}
+
+.action-proposal a:hover{
+	text-decoration:underline;
+}
+
+
+/*projects*/
+
+#projnofin a{
+	color:white;
+}
+
+#projfin a{
+	color:#aaaaaa;
+}
+
+#projfin a:hover{
+	color:white;
+}
+
+/*events*/
+#eventnofin a{
+	color:white;
+}
+
+#eventfin a{
+	color:#aaaaaa;
+}
+
+#eventfin a:hover{
+	color:white;
+}
+
+/*social-profile*/
+#user-profile{
+	background-color:#282828;
+}
+
+#user-profile h4{
+	color:#ddd;
+	font-weight:normal;
+}
+
+#new-post textarea{
+	background-color:#222;
+	color:#777;
+}
+
+/*timeline*/
+
+
+/*icons*/
+.action-icon{
+	opacity:0.6;
+}
