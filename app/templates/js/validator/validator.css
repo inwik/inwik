@@ -1,0 +1,30 @@
+.error {
+	font-size:80%;
+	color:white;
+	opacity:0.8;
+	padding:10px;
+	-webkit-border-radius: 3px;
+    border-radius: 3px;
+	position: absolute;
+	margin-top:-45px;
+	margin-left:-200px;
+	background: #bf1919;
+	width:250px;
+}
+.error:after {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.error:after {
+	border-color: rgba(191, 25, 25, 0);
+	border-top-color: #bf1919;
+	border-width: 10px;
+	left: 50%;
+	margin-left: -10px;
+}
