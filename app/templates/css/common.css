@@ -82,8 +82,8 @@ p{
     margin-left:auto;
 }
 
-/*Container--------------------------------------------------------------------------------*/
-#container{
+/*Main--------------------------------------------------------------------------------*/
+main{
 	margin-top:56px;
 	margin-bottom:180px;
 	width:100%;
@@ -96,7 +96,7 @@ p{
 }
 
 /*Header-------------------------------------------------------------------------------*/
-header{
+header.masthead{
     background-color:#222;
     position:fixed;
     z-index:3;
@@ -107,7 +107,7 @@ header{
 }
 
 @media only screen and (max-width : 900px) {
-    header{
+    header.masthead{
         position:fixed;
         box-shadow:none;
         min-width:310px;
@@ -115,8 +115,11 @@ header{
     }
 }
 
-header ul, header li{
+header.masthead li{
 	list-style:none;
+    display: inline-block;
+    vertical-align: middle;
+    height: 56px;
 }
 
 #logo, #menu-button-mobile{
@@ -171,9 +174,8 @@ header ul, header li{
 }
 
 #top-menu{
-    float:left;
-    padding:17px;
-    margin:13px 0px 0px 10px;
+    position: absolute;
+    left: 200px;
 }
 
 @media only screen and (max-width : 900px) {
@@ -198,16 +200,10 @@ header ul, header li{
     }
 }
 
-#top-menu li{
-	list-style:none;
-	float:left;
-	margin-top:-9px;
-}
-
 #top-menu li a{
-	text-decoration:none;
 	color:#aaa;
-	padding: 18px 18px 14px 18px;
+	padding: 18px;
+    display: block;
 }
 
 @media only screen and (max-width : 900px) {
@@ -215,10 +211,6 @@ header ul, header li{
         padding: 6px 16px 8px 16px;
     }
 }
-
-/*#top-menu a:hover, #top-menu .current{
-	background-color:#333333;
-}*/
 
 #tab-prop a:hover, #tab-prop .current{
 	border-bottom:3px solid #3357cc;
@@ -232,65 +224,23 @@ header ul, header li{
 	border-bottom:3px solid #cc3357;
 }
 
-#top-derecha, #top-derecha-mobile{
-    float:right;
-    padding: 13px 0;
+#right-actions{
+    position: absolute;
+    right: 20px;
 }
 
-@media only screen and (min-width : 901px) {
-	#top-derecha-mobile{
-        display:none;
-        float:none;
-        margin-top:auto;
-    }
+#right-actions li a{
+    display: block;
+    padding: 17px 10px;
+    color:#aaa;
 }
 
-@media only screen and (max-width : 900px) {
-	#top-derecha{
-        display:none;
-        float:none;
-        margin-top:auto;
-    }
-}
-
-@media only screen and (min-width : 1101px) {
-    #top-menu{
-        margin:13px 0px 0px 50px;
-    }
-}
-
-#top-derecha a{
-	margin-left:15px;
-	color: #ccc;
-	text-decoration:none;
-}
-
-#top-derecha-mobile a{
-    display:block;
-    padding:14px 15px;
-    margin-top:-15px;
-}
-
-#top-derecha ul{
-	float:right;
-	margin:6px 20px 0px 35px;
-}
-
-#top-derecha-mobile ul{
-    margin:6px 5px 0px 35px;
-}
-
-#top-derecha li, #top-derecha-mobile li{
-	float:left;
-}
-
-#top-derecha img, #top-derecha-mobile img{
-    height: 20px;
+#right-actions .fa{
+  font-size: 140%;
 }
 
 #user-header img{
-    height:30px;
-	margin-top:-4px;
+    height:25px;
     border-radius: 200px;
 }
 

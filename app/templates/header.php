@@ -1,4 +1,4 @@
-<header>
+<header class='masthead'>
     <div id="bgtransparent"></div>
     <div id="sms_ajaxdb"><div></div><button>Ok</button></div>
     <div id="notifications-panel"><div id="notifications-panel-wrapper"></div><div id="notifications-actions"></div></div>
@@ -13,26 +13,19 @@
             <li id="tab-event"><a href="eventos">Eventos</a></li>
         </ul>
     </nav>
-    <div id="top-derecha">
-        <ul id='actions'>
-<?php
-if(!empty($_SESSION['username'])) {
-include_once('user/User.php');
-$u = new User();
-$id = $u->readUser_id($_SESSION["username"]);
-?>
+    <nav id="right-actions">
+        <ul>
             <li id="user-header">
-                <a href="/usuario:<?=$_SESSION['username']?>" rel="tipsy" title="perfil social">
-                    <img src="../<?=$u->readUserAvatar($id)?>" />
-                    <span><?=$_SESSION['username']?></span>
+                <a href="/usuario:usuario" title="perfil social">
+                    <img src="app/templates/img/avatar/user.svg" />
+                    <span>Usuario</span>
                 </a>
             </li>
-            <li id="notifications-header"><a href="#" rel="tipsy" title="notificaciones"><img src="app/templates/img/layout/notifications.svg"></a></li>
-            <li id="settings-header"><a href="/usuarios:<?=$_SESSION['username']?>/preferencias" rel="tipsy" title="preferencias"><img src="app/templates/img/layout/settings.svg"/></a></li>
-<?php
-}
-?>
-            <li id="help-header"><a href="/ayuda" rel="tipsy" title="ayuda"><i class="fa fa-question-circle"></i></a></li>
+            <li id="notifications-header"><a href="#" title="notificaciones"><i class="fa fa-bell"></i></a></li>
+            <li id="settings-header"><a href="/usuarios:usuario/preferencias" title="preferencias"><i class="fa fa-cog"></i></a></li>
+            <li id="share-header"><a href="#" title="compartir"><i class="fa fa-share-alt"></i></a></li>
+            <li id="help-header"><a href="/ayuda" title="ayuda"><i class="fa fa-question-circle"></i></a></li>
+            <li id="login-header"><a href="#" title="entrar"><i class="fa fa-power-off"></i></a></li>
         </ul>
-    </div>
+    </nav>
 </header>

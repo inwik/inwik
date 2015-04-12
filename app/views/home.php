@@ -21,7 +21,7 @@
                 </br>
                 <input type="button" value="entrar" />
             </form>
-            <!--<a href="#">¿olvidaste la contraseña?</a>-->
+            <a href="#">¿olvidaste la contraseña?</a>
         </div>
         <div id="texto">
             <h1>Atención, software en construcción</h1>
@@ -56,8 +56,6 @@
             <input id="pass2-reg" type="password" size="20" maxlength="20"/>
             <p>Correo electrónico</p>
             <input id="email1-reg" name="email-reg" type="text" size="25" maxlength="50"/>
-            <p>Repite el correo electrónico</p>
-            <input id="email2-reg" type="text" size="25" maxlength="50"/>
             <div id="reg-error">
                 <p></p>
             </div>
