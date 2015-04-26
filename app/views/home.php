@@ -1,37 +1,17 @@
-<nav id="navsocial">
-    <a href="http://facebook.com/wikipartido.es" target="blank"></a>
-    <a href="http://twitter.com/wikipartido" target="blank"></a>
-</nav>
-<article id="principal">
-    <div id="principal-left">
+<div class="row">
+    <div class="col-md-8">
         <div id="video">
             <iframe id="ytplayer" width="500" height="281.25" src="//www.youtube.com/embed/1g_SQ8YRyRE?showinfo=0&autohide=1" frameborder="0" allowfullscreen></iframe>
         </div>
-        <div id="login">
-            <form id="login-form" method="post" autocomplete="on">
-                <h2>¿Tienes una cuenta?</h2>
-                <p>Nombre de usuario</p>
-                <input id="user" name="username" type="text" size="20" maxlength="20" autocomplete="on" autofocus/>
-                <p>Contraseña</p>
-                <input id="pass" name="password" type="password" size="20" maxlength="20" autocomplete="on"/>
-                <p><input id="loginrec" type="checkbox" name="loginrec"/> Mantener la sesión iniciada</p>
-                <div id="login-error">
-                    <p></p>
-                </div>
-                </br>
-                <input type="button" value="entrar" />
-            </form>
-            <a href="#">¿olvidaste la contraseña?</a>
-        </div>
         <div id="texto">
-            <h1>Atención, software en construcción</h1>
+            <h2>Atención, software en construcción</h2>
             <p>
                 Esta es una versión alpha de inwik, es decir, una versión aún muy temprana del proceso de desarrollo.</br>
                 La mayoría de los modulos están incompletos o están parcialmente completados.</br>
                 Puedes probar la parte de registro, perfil, timeline y propuestas inclusive su creación, edición y visionado.</br>
                 Si deseas ayudar con el testing y desarrollo puedes hacernos llegar tus sugerencias e impresiones través de nuestro grupo abierto de desarrollo en <b><a href="https://www.facebook.com/groups/223587212118/">facebook</a></b>.
-            </p>			</br></br>
-            <h1>¿Qué es inwik?</h1>
+            </p>
+            <h2>¿Qué es inwik?</h2>
             <p>
                 Es un proyecto de software libre desarrollado por <b><a href="http://wikipartido.es">WikiPartido</a></b>
                 para la construcción de una plataforma social online que permita la participación ciudadana desde cualquier lugar e instante.
@@ -45,22 +25,56 @@
             </p>
         </div>
     </div>
-    <div id="reg">
-        <form id="reg-form">
-            <h2>¡Únete y participa!</h2>
-            <p>Nombre de usuario</p>
-            <input id="user-reg" name="user-reg" type="text" size="20" maxlength="20"/>
-            <p>Contraseña</p>
-            <input id="pass1-reg" name="pass-reg" type="password" size="20" maxlength="20"/>
-            <p>Repite la contraseña</p>
-            <input id="pass2-reg" type="password" size="20" maxlength="20"/>
-            <p>Correo electrónico</p>
-            <input id="email1-reg" name="email-reg" type="text" size="25" maxlength="50"/>
-            <div id="reg-error">
-                <p></p>
-            </div>
-            </br>
-            <input type="button" value="Continuar"/>
-        </form>
+    <div class="col-md-4">
+        <div id="login">
+            <form id="login-form" data-toggle="validator" method="post" action="">
+                <h2>¿Tienes una cuenta?</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" maxlength="20" autocomplete="on" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña" maxlength="20" autocomplete="on" required>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="loginrec" type="checkbox" name="loginrec"> Mantener la sesión iniciada
+                    </label>
+                </div>
+                <div id="login-error">
+                    <p><?=$data["login_error"]?></p>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Entrar</button>
+                </div>
+            </form>
+            <a href="#">¿olvidaste la contraseña?</a>
+        </div>
+        <div id="reg">
+            <form id="reg-form" data-toggle="validator" method="post">
+                <h2>¡Únete y participa!</h2>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="user_reg" placeholder="Nombre de usuario" maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="pass_reg" placeholder="Introduce una contraseña" maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Repite la contraseña" maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <input type="email"  class="form-control" name="email_reg" placeholder="Correo electrónico" size="25" maxlength="50" required>
+                </div>
+                <!--<div class="form-group">
+                    <input type=hidden class="form-control" name="recaptcha" value="" required>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6Le_mgUTAAAAACn4uLXz6wDsQL9tR2Fw5AmD3JHU"></div>-->
+                <div id="reg-error">
+                    <p><p><?=$data["reg_error"]?></p></p>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Continuar</button>
+                </div>
+            </form>
+        </div>
     </div>
-</article><!--</article id='principal'>-->
+</div>

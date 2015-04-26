@@ -1,11 +1,3 @@
-/*CSS reset*/
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl,dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td{
-	margin:0;
-	padding:0;
-	border:0;
-	outline:0;
-}
-
 /*Commons elements---------------------------------------------------------------------*/
 body{
 	font-family: 'Ubuntu', sans-serif;
@@ -16,14 +8,14 @@ img{
 	border:0;
 }
 
-.placeholder {
-	color: #aaa;
+.placeholder
+    color: #555 !important;
 }
 
-input,button{
-	border:none;
-	-webkit-border-radius: 3px;
-    border-radius: 3px;
+input{
+	border:0px !important;
+    background-color: #222 !important;
+    color:#aaa !important;
 }
 
 button, input[type=button], input[type=submit]{
@@ -41,16 +33,8 @@ a{
 	text-decoration:none;
 }
 
-h1{
-	font-size:180%;
-}
-
 #map{
 	color:#777;
-}
-
-p{
-	font-size:90%;
 }
 
 #wrapper{
@@ -82,9 +66,12 @@ p{
     margin-left:auto;
 }
 
+label{
+      color:#bbb;
+}
+
 /*Main--------------------------------------------------------------------------------*/
 main{
-	margin-top:56px;
 	margin-bottom:180px;
 	width:100%;
 	z-index:1;
@@ -93,6 +80,12 @@ main{
 	-webkit-box-shadow: 0 1px 7px rgba(0,0,0,0.5);
 	-ms-box-shadow: 0 1px 7px rgba(0,0,0,0.5);
 	-o-box-shadow: 0 1px 7px rgba(0,0,0,0.5);
+}
+
+.container{
+  	padding-top:100px;
+	padding-bottom: 30px;
+	min-height: 900px;
 }
 
 /*Header-------------------------------------------------------------------------------*/
@@ -115,19 +108,28 @@ header.masthead{
     }
 }
 
+header.masthead a:hover{
+  text-decoration: none;
+}
+
+header.masthead ul{
+    margin: 0px;
+    padding: 0px;
+}
+
 header.masthead li{
 	list-style:none;
     display: inline-block;
-    vertical-align: middle;
-    height: 56px;
+    vertical-align: top;
 }
 
 #logo, #menu-button-mobile{
 	float:left;
 }
 
-#logo{
+#logo a{
     padding: 13px 12px 9px 16px;
+    display: block;
 }
 
 #logo img, #logo-mobile img{
@@ -235,7 +237,7 @@ header.masthead li{
     color:#aaa;
 }
 
-#right-actions .fa{
+#right-actions .fa, #right-actions .glyphicon{
   font-size: 140%;
 }
 
@@ -247,41 +249,6 @@ header.masthead li{
 #user-header span{
 	vertical-align:top;
 }
-/*Nav social-------------------------------------------------------------------------------*/
-#navsocial{
-	position:fixed;
-	right:0px;
-	top:130px;
-	width:40px;
-	z-index:99;
-}
-
-@media only screen and (max-width : 900px) {
-	#navsocial{
-        display:none;
-    }
-}
-
-
-#navsocial a{
-	width:40px;
-	height:40px;
-	display:block;
-	margin-bottom:4px;
-}
-#navsocial a[href='http://facebook.com/wikipartido.es']{
-	background:url("images/facebook.png");
-	border-top-left-radius: 10px;
-}
-#navsocial a[href='http://twitter.com/wikipartido']{
-	background:url("images/twitter.png");
-	border-bottom-left-radius: 10px;
-}
-#navsocial a:hover{
-	box-shadow:0px 0px 7px 0px rgba(255,255,255, 0.8);
-	background-position:2px 0px;
-}
-
 
 /*Aside------------------------------------------------------------------------------------*/
 aside.left{
@@ -347,43 +314,11 @@ aside p{
 }
 /*Contenido-------------------------------------------------------------------*/
 
-/*principal*/
-#principal{
-	width:80%;
-	margin-left:auto;
-	margin-right:auto;
-	color:#bbb;
-	margin-top:40px;
-	padding-top:60px;
-	padding-bottom:100px;
+#login-form input, #reg-form input{
+    max-width: 300px;
+    width: auto;
 }
 
-@media only screen and (max-width : 900px) {
-	#principal{
-        padding-top:60px;
-    }
-}
-
-#principal h2{
-	font-weight:normal;
-	margin-bottom:10px;
-	margin-top:-8px;
-}
-
-#principal input, #principal button{
-	padding:6px;
-	margin-top:5px;
-	margin-bottom:10px;
-	font-size:110%;
-}
-
-#principal-left{
-	width:70%;
-}
-
-#video{
-	float:left;
-}
 
 @media only screen and (max-width : 900px) {
 	#video{
@@ -391,75 +326,10 @@ aside p{
     }
 }
 
-
-#login{
-	float:right;
-}
-
-#reg{
-	position:absolute;
-	top:100px;
-	right:80px;
-}
-
-#texto{
-	width:100%;
-	text-align:justify;
-	padding-right:30px;
-	clear:left;
-	padding-top:35px;
-}
-
 @media only screen and (max-width : 900px) {
 	#texto{
         display:none;
     }
-}
-
-
-@media only screen and (max-width : 1400px) {
-	#principal{width:90%; padding-bottom:200px;}
-}
-
-@media only screen and (max-width : 1250px) {
-	#login{position:absolute; right:100px;}
-	#reg{position:absolute;top:390px;}
-	#texto{width:90%;}
-}
-
-@media only screen and (max-width : 900px) {
-	#principal{
-        margin-top:70px;
-    }
-    #principal-left{
-        width:100%;
-    }
-
-    #reg{
-        top:40px;
-        right:auto;
-        position:relative;
-        margin-left:auto;
-        margin-right:auto;
-        display:table;
-
-    }
-    #login{
-        margin-left:auto;
-        margin-right:auto;
-        display:table;
-        position:relative;
-        right:auto;
-        float:none;
-    }
-}
-
-#principal a{
-	color:#bbb;
-}
-
-#principal a:hover{
-	text-decoration:underline;
 }
 
 #user, #pass, #user-reg, #pass1-reg, #pass2-reg{
@@ -487,23 +357,10 @@ aside p{
 	margin-left:100px;
 }
 
-#login-error, #reg-error{
-    height:0px;
-}
-
 #login-error p, #reg-error p{
     color:#DC2700;
 }
 /*Article---------------------------------------------*/
-
-article{
-	font-size:90%;
-	margin-right:40px;
-	margin-left:300px;
-	padding-top:25px;
-	padding-bottom: 30px;
-	min-height: 900px;
-}
 
 #title-form input{
     width:40%;
@@ -568,7 +425,6 @@ article input, article button{
 	padding:8px;
 	margin-top:20px;
 	margin-bottom:10px;
-	font-size:110%;
 }
 
 article button{

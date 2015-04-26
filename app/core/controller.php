@@ -10,7 +10,8 @@
             require "app/helpers/$file.php";
         }
 
-        public function loadView($file){
+        public function loadView($file, $data=false){
+            @extract($data);
             ob_start();                      // start capturing output
             include "app/views/".$file.".php";   // execute the file
             $page = ob_get_contents();    // get the contents from the buffer

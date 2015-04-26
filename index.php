@@ -19,8 +19,12 @@
             break;
         }
     }else{
-        require_once 'app/controllers/home.php';
-        $h = new Home();
-        $h->index_home();
+        if (!isset($_SESSION["login"])){ //cargamos página de registro y login
+            require_once 'app/controllers/home.php';
+            $h = new Home();
+            $h->index_home();
+        }else{ //cargamos timeline
+
+        }
     }
 ?>
