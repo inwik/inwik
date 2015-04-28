@@ -69,7 +69,7 @@
                 </div>
                 <div class="g-recaptcha" data-sitekey="6Le_mgUTAAAAACn4uLXz6wDsQL9tR2Fw5AmD3JHU"></div>-->
                 <div id="reg-error">
-                    <p><p><?=$data["reg_error"]?></p></p>
+                    <p><?=$data["reg_error"]?></p>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">Continuar</button>

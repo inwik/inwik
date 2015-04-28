@@ -24,7 +24,9 @@
             $h = new Home();
             $h->index_home();
         }else{ //cargamos timeline
-
+            require_once 'app/controllers/timeline.php';
+            $t = new Timeline();
+            $t->timeline_home();
         }
     }
 ?>

@@ -417,16 +417,18 @@
         }
 
         //Login user
-        function loginUser($user, $pass, $loginrec){
-            $pass=sha1(GLOBAL_TOKEN.$pass);
-            $query = "SELECT password FROM users WHERE name='$user' AND active_account=1";
+        function loginUser($loginrec){
+            $pass=sha1(GLOBAL_TOKEN.$this->pass);
+            $query = "SELECT password FROM users WHERE name='$this->user' AND active_account=1";
             $answer = $this->_db->query($query)->fetch_row(); //bd_password
             if ($answer[0] == $pass){
                 $this->updateUser_date($user);//actualiza ultimo acceso
                 $this->updateUser_ip($user);//actualiza ultima ip
-                $_SESSION['username']=$user;
+                $_SESSION['login']['user']=$user;
+                $_SESSION['login']['pass']=$pass;
+
                 if($loginrec==1){
-                    $usercookie = setcookie("username", $user, strtotime('+15 days'), "/", PAGE_DOMAIN);
+                    $usercookie = setcookie("username", $this->user, strtotime('+15 days'), "/", PAGE_DOMAIN);
                     $passcookie = setcookie("password", $pass, strtotime('+15 days'), "/", PAGE_DOMAIN);
                 }
                 return true;

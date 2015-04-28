@@ -12,10 +12,10 @@
         function index_home(){
             if ($_POST){
                 if(empty($_POST["user_reg"]) && empty($_POST["email_reg"]) && empty($_POST["pass_reg"])){ //login
-                    $user=$_POST["username"];
-                    $pass=md5($_POST["password"]);
+                    $this->u->user=$_POST["username"];
+                    $this->u->pass=md5($_POST["password"]);
                     @$loginrec=$_POST['loginrec'];
-                    if ($this->u->loginUser($user,$pass,$loginrec)){
+                    if ($this->u->loginUser($loginrec)){
                         //mostramos timeline
                     }else{
                         //mostramos de nuevo la pagina de inicio con error
