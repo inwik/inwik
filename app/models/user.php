@@ -3,7 +3,7 @@
 
     class Users_Model extends Database{
 
-        var $user, $email, $pass, $name, $residence, $description, $studies, $jobs;
+        var $id, $user, $email, $pass, $name, $residence, $description, $studies, $jobs;
 
         function __construct(){
            parent::__construct();
@@ -12,12 +12,12 @@
         // Read functions-----------------------------------------------------//
 
         // Read user id -- leer id del usuario
-        function readUser_id($name)
+        function getId($user)
         {
-            $query = "SELECT id FROM users WHERE name='$name'";
-            $answer = $this->_db->query($query)->fetch_row();
+            $query = "SELECT id FROM users WHERE user='$this->user'";
+            $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
-            return $answer[0];
+            return $answer["id"];
             return false;
         }
 
@@ -90,8 +90,6 @@
                 return false;
             }
         }
-
-
 
     //Posts functions-----------------------------------------------------//
 
@@ -197,14 +195,14 @@
     //Avatar functions-----------------------------------------------------//
 
         // Read if user has avatar -- Comprobar si el usuario tiene avatar
-        function readUserAvatar($id){
+        function readUserAvatar(){
                //comrpobar si tiene avatar subido, sino se muestra el generico
             $dir="images/avatar";
-            $avatar=$dir."/".$id.".jpg";
+            $avatar=$dir."/".$this->id.".jpg";
             $generic_avatar=$dir."/"."user.svg";
             $query = "SELECT avatar FROM users WHERE id='$id'";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer[0]==1){
+            $answer = $this->_db->query($query)->fetch_assoc();
+            if ($answer["avatar"]==1){
                 $img=$avatar;
             }
             else{
@@ -214,7 +212,7 @@
         }
 
         //Activate user avatar
-        function activateAvatar($id){
+        function activateAvatar(){
             $query = "UPDATE users SET avatar = 1 WHERE id='$id'";
             if ( $this->_db->query($query) )
             return true;
@@ -296,7 +294,7 @@
 
         function iSendFriendlyPetition($iduser,$idfriend){
             $query = "SELECT * FROM friends WHERE ((user1='$iduser' AND user2='$idfriend') AND friendly_date IS NULL)";
-            $answer = $this->_db->query($query)->fetch_row();
+            $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
             return true;
             return false;
@@ -306,7 +304,7 @@
         function cancelFriendly($iduser, $idfriend)
         {
             $query = "DELETE FROM friends WHERE ((user1='$iduser' AND user2='$idfriend') OR (user1='$idfriend' AND user2='$iduser'))";
-            $answer = $this->_db->query($query)->fetch_row();
+            $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
             return true;
             return false;
@@ -314,76 +312,20 @@
 
     // Register functions-----------------------------------------------------//
 
-        // Read if user and email is not used -- Comrpueba si nombre y email no estan ya usados
-        function existUser_nameoremail($name, $email)
-        {
-            $query = "SELECT id FROM users WHERE name='$name' OR email='$email'";//revisar
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return true;
-            return false;
-        }
-
         // User register -- Registro de usuario
         function setUser()
         {
             $new_date=date ("Y-m-d H:i:s");
-            $pass=sha1(GLOBAL_TOKEN . $this->pass);
+            $pass=sha1(GLOBAL_TOKEN.$this->pass);
 
             if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARTDED_FOR'] != '') {
                 $creation_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
             } else {
                 $creation_ip = $_SERVER['REMOTE_ADDR'];
             }
-            $query = "INSERT INTO users (name, email, password, creation_date, creation_ip) VALUES ('$this->user', '$this->email', '$this->pass', '$new_date', '$creation_ip')";
+            $query = "INSERT INTO users (name, email, password, creation_date, creation_ip) VALUES ('$this->user', '$this->email', '$pass', '$new_date', '$creation_ip')";
             if ( $this->_db->query($query) )
             return mysqli_insert_id($this->_db);
-            return false;
-        }
-
-        // Activation email-- Email de activación
-        function activateUser_email($name)
-        {
-            require_once('../../resources/PHPMailer/PHPMailerAutoload.php');
-            $mail = new PHPMailer();
-            $query = "SELECT id, email, creation_date FROM users WHERE name='$name'";
-            $answer = $this->_db->query($query)->fetch_row();
-            $id=$answer[0];
-            $to=$answer[1];
-            $date=$answer[2];
-            $email_key=md5($date . $id . $this->email_token);
-            $body="
-                <html>
-                    <body>
-                        <p>Bienvenido/a a ". $this->page_name .", $name.</p>
-                        <p>Este es tu código de activación: $email_key</p>
-                        <p>¡Entra en este enlace, introduce tus datos y serás parte de esta gran comunidad!</p>
-                        <a href='" . $this->page_domain . "/?activation=$email_key'>" . $this->page_domain . "/?activation=$email_key</a>
-                        <p>Si tienes algún problema con tu registro ponte en contacto con nosotros a través de esta dirección:</p> <a href='mailto:". $this->contact_email ."'>". $this->contact_email ."</a>
-                        <p>¡Bienvenido/a!</p>
-                    <body>
-                </html>
-            ";
-
-            $mail->isSMTP();
-            //$mail->SMTPDebug = 2;
-            $mail->Host = $this->smtp_server;
-            //$mail->SMTPSecure = "ssl";
-            $mail->Port = $this->smtp_port;
-            $mail->SMTPAuth = true;
-            $mail->Username = $this->smtp_username;
-            $mail->Password = $this->smtp_password;
-            $mail->setFrom($this->noreply_email, $this->page_name);
-            $mail->addReplyTo($this->noreply_email, $this->page_name);
-            $mail->addAddress($to, $name);
-            $mail->Subject = "Activación de cuenta en ". $this->page_name;
-            //$mail->AltBody="Cuerpo alternativo del mensaje en solo texto";
-            $mail->msgHTML($body);
-            //$mail->AddAttachment("ruta/archivoadjunto.jpg");
-            $mail->CharSet = "UTF-8";
-            //$mail->Encoding = "quotedprintable";
-            if ($mail->Send())
-            return true;
             return false;
         }
 
@@ -420,29 +362,19 @@
         function loginUser($loginrec){
             $pass=sha1(GLOBAL_TOKEN.$this->pass);
             $query = "SELECT password FROM users WHERE name='$this->user' AND active_account=1";
-            $answer = $this->_db->query($query)->fetch_row(); //bd_password
-            if ($answer[0] == $pass){
-                $this->updateUser_date($user);//actualiza ultimo acceso
-                $this->updateUser_ip($user);//actualiza ultima ip
-                $_SESSION['login']['user']=$user;
-                $_SESSION['login']['pass']=$pass;
+            $answer = $this->_db->query($query)->fetch_assoc(); //bd_password
+            if ($answer["password"] == $pass){
+                $this->updateUser_date($this->user);//actualiza ultimo acceso
+                $this->updateUser_ip($this->user);//actualiza ultima ip
+                $_SESSION['login']['user']=$this->user;
+                $_SESSION['login']['pass']=$this->pass; //password solo con el md5
 
                 if($loginrec==1){
                     $usercookie = setcookie("username", $this->user, strtotime('+15 days'), "/", PAGE_DOMAIN);
-                    $passcookie = setcookie("password", $pass, strtotime('+15 days'), "/", PAGE_DOMAIN);
+                    $passcookie = setcookie("password", $this->pass, strtotime('+15 days'), "/", PAGE_DOMAIN);
                 }
                 return true;
             }
-            return false;
-        }
-
-        // Read if exist name, yes-> true , no-> false
-        function existUser_name($name)
-        {
-            $query = "SELECT id FROM users WHERE name='$name'";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return true;
             return false;
         }
 

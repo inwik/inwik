@@ -10,7 +10,7 @@ main{
 	background-color:#333333;
 }
 
-#principal input, article input, article textarea, #editor{
+#principal input, section input, section textarea, #editor{
 	border-color: #333333;
 	color: #ABABAB;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6) inset;
@@ -39,11 +39,11 @@ aside h4, aside p, #menu-mobile h4, #menu-mobile p{
 	color:#777777;
 }
 
-article{
+section{
 	color:white;
 }
 
-section{
+article{
 	background-color:#282828;
 }
 /*proposals*/

@@ -15,7 +15,7 @@
             case 'propuestas':
                 require_once 'app/controllers/proposals.php';
                 $p = new Proposal();
-                $p->proposals_home();
+                $p->index_proposals();
             break;
         }
     }else{
@@ -26,7 +26,7 @@
         }else{ //cargamos timeline
             require_once 'app/controllers/timeline.php';
             $t = new Timeline();
-            $t->timeline_home();
+            $t->index_timeline();
         }
     }
 ?>

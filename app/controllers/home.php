@@ -3,13 +3,8 @@
 
     class Home extends Controller{
 
-        public function __construct()
-        {
-            $this->loadModel('user');
-            $this->u = new Users_Model();
-        }
-
         function index_home(){
+            $data['page_title'] = PAGE_NAME;
             if ($_POST){
                 if(empty($_POST["user_reg"]) && empty($_POST["email_reg"]) && empty($_POST["pass_reg"])){ //login
                     $this->u->user=$_POST["username"];
@@ -17,11 +12,12 @@
                     @$loginrec=$_POST['loginrec'];
                     if ($this->u->loginUser($loginrec)){
                         //mostramos timeline
+                        $this->render('timeline', $data);
                     }else{
                         //mostramos de nuevo la pagina de inicio con error
                         $data["reg_error"]="";
                         $data["login_error"]="El nombre de usuario o contraseña no son válidos";
-                        $page = $this->loadView('home', $data);
+                        $this->render('home', $data);
                     }
                 }else{//register
                     $this->u->user = $_POST["user_reg"];
@@ -30,20 +26,18 @@
                     $data["login_error"]="";
                     if ($this->u->registerUser()){
                         $data["reg_error"]="Hemos enviado un email con un enlace para poder activar tu cuenta";
-                        $page = $this->loadView('home', $data);
+                        $this->render('home', $data);
                         //hemos enviado un email, necesitas activarlo
                     }else{
                         $data["reg_error"]="Ya hay un usuario registrado con este nombre o e-mail";
-                        $page = $this->loadView('home', $data);
+                        $this->render('home', $data);
                     }
 
                 }
             }else{
-                $page = $this->loadView('home');
+                $this->render('home', $data);
                 /*$data['prop_list'] = $this->_proposal->get_proposals();*/
             }
-            $data['page_title'] = PAGE_NAME;
-            $this->render($page, $data);
         }
 
     }

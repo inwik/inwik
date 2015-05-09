@@ -251,14 +251,14 @@ header.masthead li{
 }
 
 /*Aside------------------------------------------------------------------------------------*/
-aside.left{
+aside.aside_left{
 	width:230px;
 	padding:0px 15px 0px 20px;
-	font-size:90%;
-	position: fixed;
-	bottom:180px;
+	position: absolute;
+	bottom:60px;
 	top:56px;
 	overflow-y: hidden;
+    left: 0;
 }
 
 aside .aside-wrapper{
@@ -266,7 +266,7 @@ aside .aside-wrapper{
 }
 
 @media only screen and (max-width : 900px) {
-	aside.left{
+	aside.aside_left{
         display:none;
     }
 
@@ -360,6 +360,15 @@ aside p{
 #login-error p, #reg-error p{
     color:#DC2700;
 }
+
+/*Section---------------------------------------------*/
+section.section_main{
+    position: absolute;
+    left: 270px;
+    right: 270px;
+}
+
+
 /*Article---------------------------------------------*/
 
 #title-form input{
@@ -367,10 +376,7 @@ aside p{
 }
 
 @media only screen and (max-width : 900px) { /**************************************************************/
-	article{
-        position:static !important;
-        margin:0px 0px;
-    }
+
 
     #title-form input{
         width:60%;
@@ -419,36 +425,6 @@ aside p{
 	padding-top:60px;
 	padding-bottom:100px;
 	position:static;
-}
-
-article input, article button{
-	padding:8px;
-	margin-top:20px;
-	margin-bottom:10px;
-}
-
-article button{
-	color:white;
-    margin:0;
-}
-
-article button img{
-	vertical-align:bottom;
-	margin-right:4px;
-}
-/*Section------------------------------------------------------------------------*/
-section{
-	margin-top:30px;
-	padding:30px;
-	border-radius:2px;
-	-webkit-border-radius: 2px;
-}
-
-@media only screen and (max-width : 900px) {
-    section{
-        margin: 10px;
-        padding: 20px;
-    }
 }
 
 /*proposals-----------------------*/
@@ -544,12 +520,6 @@ section{
     #proposal-list{
         margin-top:30px;
     }
-
-    #proposal-list section{
-        margin-top:10px;
-        border-radius: 0px;
-        -webkit-border-radius:0px;
-    }
 }
 
 .link-proposal{
@@ -602,13 +572,6 @@ section{
     text-align:justify;
 }
 
-#proposals-viewer section{
-	padding:0;
-	border-radius:0;
-	-webkit-border-radius: 0;
-	background:none;
-}
-
 #proposals-viewer p, #proposals-viewer h4, #proposals-viewer h2{
 	margin-top:10px;
 }
@@ -636,69 +599,6 @@ section{
 #contra-viewer{
 	float:right;
 }
-
-/*projects--------------------*/
-#new-project button{
-	background-color:#57cc33;
-}
-
-#projnofin{
-	border-top:2px solid #57cc33;
-	width:200px;
-	font-weight:bold;
-	float:left;
-}
-
-#projfin{
-	border-left:2px solid #57cc33;
-	border-bottom:2px solid #57cc33;
-	color:#aaaaaa;
-	margin-left:220px;
-}
-
-#participants{
-	color:#cccccc;
-}
-
-/*events-----------------------------------*/
-/*events editor*/
-#new-event button{
-	background-color:#cc3357;
-}
-
-#eventnofin{
-	border-top:2px solid #cc3357;
-	width:200px;
-	font-weight:bold;
-	float:left;
-}
-
-#eventfin{
-	border-left:2px solid #cc3357;
-	border-bottom:2px solid #cc3357;
-	color:#aaaaaa;
-	margin-left:220px;
-}
-
-#attendees{
-	color:#cccccc;
-}
-
-/*events viewer*/
-#events-viewer h4{
-	margin-top:20px;
-	margin-bottom:20px;
-}
-
-#events-viewer p{
-	margin-top:40px;
-}
-
-/*timeline*/
-#aside-timeline a{
-	display: block;
-}
-
 
 /*users------------------------------------------------------------------*/
 /*social profile*/
@@ -1031,16 +931,6 @@ section{
 
 #new-post-avatar img, .post-avatar img{
 	max-width:100%;
-}
-
-section.post{
-    margin-top:20px !important;
-}
-
-@media only screen and (max-width : 900px) {
-    section.post{
-        margin-top:10px !important;
-    }
 }
 
 .post-wrapper{

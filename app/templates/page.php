@@ -50,6 +50,13 @@
         <!-- end: footer -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="vendor/validator.min.js"></script>
+        <script src="vendor/cookiechoices/cookiechoices.js"></script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function(event) {
+            cookieChoices.showCookieConsentBar('Utilizamos cookies para proporcionarle un mejor servicio',
+              'Cerrar mensaje', 'Más información', 'http://example.com');
+          });
+        </script>
         <!--<script src="app/templates/js/recaptchaval.js"></script>-->
 	</body>
 </html>
