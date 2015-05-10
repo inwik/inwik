@@ -38,9 +38,7 @@
       <!-- end: header -->
       <!-- contenido -->
         <main>
-            <div class="container">
-                <?=$page?>
-            </div>
+            <?=$page?>
         </main>
       <!-- end: contenido -->
       <!-- footer -->

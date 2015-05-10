@@ -323,7 +323,7 @@
             } else {
                 $creation_ip = $_SERVER['REMOTE_ADDR'];
             }
-            $query = "INSERT INTO users (name, email, password, creation_date, creation_ip) VALUES ('$this->user', '$this->email', '$pass', '$new_date', '$creation_ip')";
+            $query = "INSERT INTO users (user, email, password, creation_date, creation_ip) VALUES ('$this->user', '$this->email', '$pass', '$new_date', '$creation_ip')";
             if ( $this->_db->query($query) )
             return mysqli_insert_id($this->_db);
             return false;
@@ -361,11 +361,11 @@
         //Login user
         function loginUser($loginrec){
             $pass=sha1(GLOBAL_TOKEN.$this->pass);
-            $query = "SELECT password FROM users WHERE name='$this->user' AND active_account=1";
+            $query = "SELECT password FROM users WHERE user='$this->user' AND active_account=1";
             $answer = $this->_db->query($query)->fetch_assoc(); //bd_password
             if ($answer["password"] == $pass){
-                $this->updateUser_date($this->user);//actualiza ultimo acceso
-                $this->updateUser_ip($this->user);//actualiza ultima ip
+                $this->updateUser_date();//actualiza ultimo acceso
+                $this->updateUser_ip();//actualiza ultima ip
                 $_SESSION['login']['user']=$this->user;
                 $_SESSION['login']['pass']=$this->pass; //password solo con el md5
 
@@ -379,9 +379,9 @@
         }
 
         // Read if account is active: 1-> true, 0->false
-        function getUser_activeaccount($name)
+        function getUser_activeaccount()
         {
-            $query = "SELECT active_account FROM users WHERE name='$name'";
+            $query = "SELECT active_account FROM users WHERE user='$this->user'";
             $answer = $this->_db->query($query)->fetch_row();
             if ($answer[0]==1)
             return true; //active
@@ -406,17 +406,17 @@
         }
 
         //Update lastDate -- Actualizar último acceso
-        function updateUser_date($name)
+        function updateUser_date()
         {
             $new_date=date ("Y-m-d H:i:s");
-            $query = "UPDATE users SET last_date='$new_date' WHERE name='$name'";
+            $query = "UPDATE users SET last_date='$new_date' WHERE user='$this->user'";
             if ( $this->_db->query($query) )
             return true;
             return false;
         }
 
         //Update lastIP -- Actualizar últimaIP
-        function updateUser_ip($name)
+        function updateUser_ip()
         {
             if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARTDED_FOR'] != '') {
                 $last_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -424,7 +424,7 @@
                 $last_ip = $_SERVER['REMOTE_ADDR'];
             }
 
-            $query = "UPDATE users SET last_ip='$last_ip' WHERE name='$name'";
+            $query = "UPDATE users SET last_ip='$last_ip' WHERE user='$this->user'";
             if ( $this->_db->query($query) )
             return true;
             return false;

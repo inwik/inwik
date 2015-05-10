@@ -88,6 +88,11 @@ main{
 	min-height: 900px;
 }
 
+.container.full_width{
+    width: 100%;
+    padding: 0;
+}
+
 /*Header-------------------------------------------------------------------------------*/
 header.masthead{
     background-color:#222;
@@ -252,13 +257,12 @@ header.masthead li{
 
 /*Aside------------------------------------------------------------------------------------*/
 aside.aside_left{
+    position: absolute;
+    top:0;
+    bottom: 0;
 	width:230px;
 	padding:0px 15px 0px 20px;
-	position: absolute;
-	bottom:60px;
-	top:56px;
 	overflow-y: hidden;
-    left: 0;
 }
 
 aside .aside-wrapper{
@@ -363,13 +367,19 @@ aside p{
 
 /*Section---------------------------------------------*/
 section.section_main{
-    position: absolute;
-    left: 270px;
-    right: 270px;
+    margin-left: 250px;
+    padding: 90px 15px;
 }
 
 
 /*Article---------------------------------------------*/
+
+article.post{
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
 
 #title-form input{
     width:40%;
