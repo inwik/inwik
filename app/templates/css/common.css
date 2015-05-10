@@ -260,13 +260,9 @@ aside.aside_left{
     position: absolute;
     top:0;
     bottom: 0;
-	width:230px;
-	padding:0px 15px 0px 20px;
+	width:250px;
+	padding:100px 15px 0px 20px;
 	overflow-y: hidden;
-}
-
-aside .aside-wrapper{
-	padding:40px 0 40px 0;
 }
 
 @media only screen and (max-width : 900px) {
@@ -274,9 +270,9 @@ aside .aside-wrapper{
         display:none;
     }
 
-	aside .aside-wrapper{
-		padding: 70px 0 40px 0;
-	}
+    section.section_main{
+       margin-left: 0 !important;
+    }
 }
 
 aside h4{
@@ -305,17 +301,6 @@ aside p{
 	font-size:80%;
 }
 
-#aside-links{
-	margin-top:50px;
-}
-
-#aside-links a{
-	font-weight:bold;
-}
-
-#aside-links a:hover{
-	text-decoration:underline;
-}
 /*Contenido-------------------------------------------------------------------*/
 
 #login-form input, #reg-form input{

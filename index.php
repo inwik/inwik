@@ -12,10 +12,28 @@
         $section=$_GET['section'];
 
         switch ($section){
-            case 'propuestas':
+            case 'proposals':
                 require_once 'app/controllers/proposals.php';
                 $p = new Proposal();
                 $p->index_proposals();
+            break;
+
+            case 'projects':
+                require_once 'app/controllers/projects.php';
+                $p = new Project();
+                $p->index_projects();
+            break;
+
+            case 'events':
+                require_once 'app/controllers/events.php';
+                $p = new Event();
+                $p->index_events();
+            break;
+
+            case 'user':
+                require_once 'app/controllers/users.php';
+                $p = new User();
+                $p->index_users();
             break;
         }
     }else{

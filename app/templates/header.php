@@ -4,7 +4,7 @@
     <div id="notifications-panel"><div id="notifications-panel-wrapper"></div><div id="notifications-actions"></div></div>
     <div id="notifications-wrapper"></div>
     <div id="logo">
-        <a href="index.php"><img src="app/templates/img/layout/logo-header.svg"/></a>
+        <a href=""><img src="app/templates/img/layout/logo-header.svg"/></a>
     </div>
     <nav id="top-menu">
         <ul>

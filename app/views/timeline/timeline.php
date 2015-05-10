@@ -1,20 +1,9 @@
 <div class="container full_width">
     <aside class='aside_left'>
-        <div class='aside-wrapper'>
-            <div id="aside-links">
-                <a href="#"><span class="aside-icon" id="whatis"></span>¿Qué es inwik?</a>
-                <br>
-                <a href="#"><span class="aside-icon" id="faq"></span>Preguntas frecuentes</a>
-                <br>
-                <a href="#"><span class="aside-icon" id="contact"></span>Contacto</a>
-                <br>
-                <a href="#"><span class="aside-icon" id="devweb"></span>Web de desarrollo</a>
-                <br>
-                <a href="#"><span class="aside-icon" id="download"></span>Descargar código</a>
-                <br>
-                <a href="#"><span class="aside-icon" id="special"></span>Páginas especiales</a>
-            </div>
-        </div>
+        <p>Bla bla bla</p>
+        <p>Bla bla bla</p>
+        <p>Bla bla bla</p>
+        <p>Bla bla bla</p>
     </aside>
     <section class='section_main full_width'>
         <article class='post'>
