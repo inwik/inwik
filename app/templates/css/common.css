@@ -319,6 +319,10 @@ aside p{
   font-size: 14pt;
 }
 
+.home a, .home a:hover{
+  color: white;
+}
+
 .bg_home{
     background-image: url(../img/layout/bg_home.jpg);
     background-position: center;
