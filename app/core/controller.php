@@ -1,6 +1,7 @@
 <?php
     class Controller {
         private $view = null;
+        private $folder = null;
         private $data = array();
         private $modelName;
 
@@ -18,10 +19,10 @@
             require DIR."/app/helpers/$file.php";
         }
 
-        public function loadView($view){
+        public function loadView($folder,$view,$data){
             @extract($data);
             ob_start();                      // start capturing output
-            include DIR."/app/views/$view/".$view.".php";   // execute the file
+            @include DIR."/app/views/".$folder."/".$view.".php";   // execute the file
             $page = ob_get_contents();    // get the contents from the buffer
             ob_end_clean();
             return $page;
@@ -35,8 +36,8 @@
             }
         }
 
-        public function render($view, $data){
-            $page=$this->loadView($view);
+        public function render($folder, $view, $data){
+            $page=$this->loadView($folder, $view, $data);
             $this->preRender();
             require 'app/templates/page.php';
         }

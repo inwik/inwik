@@ -12,12 +12,12 @@
                     @$loginrec=$_POST['loginrec'];
                     if ($this->u->loginUser($loginrec)){
                         //mostramos timeline
-                        $this->render('timeline', $data);
+                        $this->render('timeline','timeline', $data);
                     }else{
                         //mostramos de nuevo la pagina de inicio con error
                         $data["reg_error"]="";
-                        $data["login_error"]="El nombre de usuario o contraseña no son válidos";
-                        $this->render('home', $data);
+                        $data["login_error"]=__("El nombre de usuario o contraseña no son válidos");
+                        $this->render('home','home', $data);
                     }
                 }else{//register
                     $this->u->user = $_POST["user_reg"];
@@ -25,17 +25,16 @@
                     $this->u->email = $_POST["email_reg"];
                     $data["login_error"]="";
                     if ($this->u->registerUser()){
-                        $data["reg_error"]="Hemos enviado un email con un enlace para poder activar tu cuenta";
-                        $this->render('home', $data);
+                        $this->render('home','register_sucess', $data);
                         //hemos enviado un email, necesitas activarlo
                     }else{
-                        $data["reg_error"]="Ya hay un usuario registrado con este nombre o e-mail";
-                        $this->render('home', $data);
+                        $data["reg_error"]=__("Ya hay un usuario registrado con este nombre o e-mail");
+                        $this->render('home','home', $data);
                     }
 
                 }
             }else{
-                $this->render('home', $data);
+                $this->render('home', 'home', $data);
                 /*$data['prop_list'] = $this->_proposal->get_proposals();*/
             }
         }

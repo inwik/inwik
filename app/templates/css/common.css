@@ -1,6 +1,6 @@
 /*Commons elements---------------------------------------------------------------------*/
 body{
-	font-family: 'Ubuntu', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 	overflow-x:auto;
 }
 
@@ -70,6 +70,11 @@ label{
       color:#bbb;
 }
 
+header.title{
+  text-align: center;
+    text-transform: uppercase;
+}
+
 /*Main--------------------------------------------------------------------------------*/
 main{
 	margin-bottom:180px;
@@ -83,9 +88,7 @@ main{
 }
 
 .container{
-  	padding-top:100px;
-	padding-bottom: 30px;
-	min-height: 900px;
+  	padding:100px 0;
 }
 
 .container.full_width{
@@ -120,6 +123,7 @@ header.masthead a:hover{
 header.masthead ul{
     margin: 0px;
     padding: 0px;
+    text-transform: uppercase;
 }
 
 header.masthead li{
@@ -185,10 +189,10 @@ header.masthead li{
     left: 200px;
 }
 
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 767px) {
 	#top-menu{
         position:absolute;
-        top:56px;
+        top:35px;
         left:0px;
         background:#222;
         padding:15px 0 0 0;
@@ -301,13 +305,47 @@ aside p{
 	font-size:80%;
 }
 
-/*Contenido-------------------------------------------------------------------*/
+/*HOME-------------------------------------------------------------------*/
 
-#login-form input, #reg-form input{
-    max-width: 300px;
-    width: auto;
+.home{
+  max-width: 800px;
 }
 
+.home p, .home h2{
+    color: white !important;
+}
+
+.home p{
+  font-size: 14pt;
+}
+
+.bg_home{
+    background-image: url(../img/layout/bg_home.jpg);
+    background-position: center;
+}
+
+.social_home{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+}
+
+.social_home li{
+  display: inline-block;
+}
+
+.social_home li i{
+  font-size: 26pt;
+    color: white;
+    padding: 10px;
+}
+
+@media only screen and (min-width : 768px) {
+    #login-form input, #reg-form input{
+        max-width: 300px;
+        width: auto;
+    }
+}
 
 @media only screen and (max-width : 900px) {
 	#video{
@@ -368,43 +406,6 @@ article.post{
 
 #title-form input{
     width:40%;
-}
-
-@media only screen and (max-width : 900px) { /**************************************************************/
-
-
-    #title-form input{
-        width:60%;
-        min-width:230px;
-    }
-
-    #editor{
-    	box-shadow: 0px !important; /***************/
-    }
-
-	#proposal-editor, #project-editor, #event-editor, #user-editor {
-    	padding-bottom: 0px !important;
-        margin:0px !important;
-    }
-
-    footer{
-    	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.6) inset !important; /***************/
-    	background-color: #1C1C1C;
-    	min-height: 180px;
-    	height:auto;
-    }
-
-
-    footer div{
-    	padding-left: 9%;
-
-    }
-	#footer-logo, #footer-html5, #footer-gpl, #footer-license{
-    	width: 34% !important;
-    	margin-bottom: 15px;
-
-	}
-
 }
 
 #index-temp{
@@ -1190,11 +1191,18 @@ a.more-comments {
 
 /*Footer--------------------------------------------------------------------------------*/
 footer{
-	height:180px;
 	width:100%;
 	position:fixed;
 	bottom:0;
 	z-index:-1;
+}
+
+footer .container{
+    text-align: center;
+}
+
+footer p{
+      color:white;
 }
 
 footer a{
@@ -1203,31 +1211,6 @@ footer a{
 	font-weight:bold;
 }
 
-#footer-links{
-	padding:60px 10px;
-	text-align:center;
-    max-width:900px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-#footer-logo, #footer-html5, #footer-gpl, #footer-license{
-	float:left;
-    width:25%;
-}
-
-#footer-logo img, #footer-html5 img{
-    height:100%;
-    width:80%;
-}
-
-#footer-gpl img{
-    width:60%;
-}
-
-#footer-license img{
-    width:70%;
-}
 /*icons---------------------*/
 .aside-icon{
 	display:inline-block;
