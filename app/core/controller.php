@@ -19,7 +19,7 @@
             require DIR."/app/helpers/$file.php";
         }
 
-        public function loadView($folder,$view,$data){
+        public function loadView($folder,$view,$data=false){
             @extract($data);
             ob_start();                      // start capturing output
             @include DIR."/app/views/".$folder."/".$view.".php";   // execute the file
@@ -28,23 +28,19 @@
             return $page;
         }
 
-        public function preRender(){
+        /*public function preRender(){
             if(!isset($_SESSION["login"])){
                 $this->data["user"]="hola";
             }else{
                 $this->data["user"]=$_SESSION["login"]["user"];
             }
-        }
+        }*/
 
-        public function render($folder, $view, $data){
+        public function render($folder, $view, $data=false){
             $page=$this->loadView($folder, $view, $data);
-            $this->preRender();
+            //$this->preRender();
             require 'app/templates/page.php';
         }
     }
 
 ?>
-
-
-
-

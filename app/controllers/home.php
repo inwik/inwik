@@ -14,7 +14,7 @@
 
                     if(!isset($_GET["activation"])){ //si no se recibe clave para activacion hacemos login normal
 
-                        if ($this->u->loginUser($loginrec)){
+                        if ($this->u->login($loginrec)){
                             //mostramos timeline
                             $this->render('timeline','timeline', $data);
                         }else{
@@ -24,8 +24,8 @@
                             $this->render('home','home', $data);
                         }
                     }else{ //si recibimos clave de activacion intentamos activar la cuenta
-                        if($this->u->activeUser($_GET["activation"])){
-                            if ($this->u->loginUser($loginrec)){
+                        if($this->u->activate($_GET["activation"])){
+                            if ($this->u->login($loginrec)){
                                 //mostramos timeline
                                 $this->render('timeline','timeline', $data);
                             }else{
@@ -45,7 +45,7 @@
                     $this->u->pass = md5($_POST["pass_reg"]);
                     $this->u->email = $_POST["email_reg"];
                     $data["login_error"]="";
-                    if ($this->u->registerUser()){
+                    if ($this->u->register()){
                         $this->render('home','register_sucess', $data);
                         //hemos enviado un email, necesitas activarlo
                     }else{

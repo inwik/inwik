@@ -611,8 +611,7 @@ article.post{
 
 
 #user-profile{
-	padding:30px;
-    min-height:220px;
+	padding:10px 30px;
 }
 
 #user-profile input{
@@ -663,7 +662,6 @@ article.post{
 
 #user-avatar img{
 	width:100%;
-    border-radius:200px;
 }
 
 .avatar-editable{
@@ -818,12 +816,6 @@ article.post{
   content:attr(placeholder);
   color:grey;
   font-weight: 400;
-}
-
-
-#realname, #description, #username{
-    padding:5px;
-    margin-bottom: 6px;
 }
 
 @media only screen and (max-width : 640px) {

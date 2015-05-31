@@ -313,7 +313,7 @@
     // Register & login functions-----------------------------------------------------//
 
         // Insert User
-        function setUser()
+        function set()
         {
             $new_date=date ("Y-m-d H:i:s");
             $pass=sha1(GLOBAL_TOKEN.$this->pass);
@@ -330,8 +330,8 @@
         }
 
         //Register user
-        function registerUser(){
-            if($id=$this->setUser()){
+        function register(){
+            if($id=$this->set()){
                 $email_key=md5($id . sha1(GLOBAL_TOKEN.$this->pass) . EMAIL_TOKEN);
                 require_once DIR.'/app/models/email.php';
                 $mail = new Email();
@@ -354,7 +354,7 @@
         }
 
         //Login user
-        function loginUser($loginrec){
+        function login($loginrec){
             $pass=sha1(GLOBAL_TOKEN.$this->pass);
             $query = "SELECT password FROM users WHERE user='$this->user' AND active_account=1";
             $answer = $this->_db->query($query)->fetch_assoc(); //bd_password
@@ -373,6 +373,14 @@
             return false;
         }
 
+        //Login user
+        function logout(){
+            unset($_SESSION["login"]);
+            session_destroy();
+
+			Header("Location: ".PAGE_DOMAIN);
+        }
+
         // Read if account is active: 1-> true, 0->false
         function getUser_activeaccount()
         {
@@ -384,7 +392,7 @@
         }
 
         //Active user account
-        function activeUser($email_key)
+        function activate($email_key)
         {
             //$email_key=md5($id . sha1(GLOBAL_TOKEN . $this->pass) . EMAIL_TOKEN);
 

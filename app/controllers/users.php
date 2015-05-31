@@ -1,20 +1,19 @@
 <?php
     require_once 'app/core/controller.php';
 
-    class Timeline extends Controller{
+    class User extends Controller{
 
-        function index_timeline(){
+        function index_users(){
             @$action=$_GET["action"];
             switch($action){
-                case 'logout':
+                case 'view':
                     $data['page_title'] = PAGE_NAME;
-                    $this->u->logout();
-                    $this->render('home', 'home', $data);
+                    $this->render('user', 'user', $data);
                 break;
 
                 default:
                     $data['page_title'] = PAGE_NAME;
-                    $this->render('timeline', 'timeline', $data);
+                    $this->render('user', 'user', $data);
             }
         }
 

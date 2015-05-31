@@ -12,10 +12,9 @@
                     <header class="title">
                         <h2>Bienvenidos a inwik</h2>
                     </header>
-                    <p>Esta es una versión alpha de inwik, es decir, una versión aún muy temprana del proceso de desarrollo.</p>
-                    <p>La mayoría de los modulos están incompletos o están parcialmente completados.</p>
-                    <p>Puedes probar la parte de registro, perfil, timeline y propuestas inclusive su creación, edición y visionado.</p>
-                    <p>Si deseas ayudar con el testing y desarrollo puedes hacernos llegar tus sugerencias e impresiones través de nuestro grupo abierto de desarrollo en <b><a href="https://www.facebook.com/groups/223587212118/" title="facebook" target="_blank">facebook</a></b>.</p>
+                    <p>Esta es una versión alpha de inwik, es decir, una versión aún muy temprana del proceso de desarrollo. La mayoría de los modulos están incompletos o están parcialmente completados.</p>
+                    <p>inwik es un proyecto/plataforma social de desarrollo e investigación sobre democracia participativa. Puedes ver el siguiente TEDx presentado por uno de los desarrolladores del proyecto en el que se resume las ideas sobre el funcionamiento. <b><a href="https://www.youtube.com/watch?v=1g_SQ8YRyRE" title="(Ver vídeo en youtube)" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="(Ver vídeo en youtube)">Inwik, democracia sostenible</a></b></p>
+                    <p>Si deseas ayudar con el testing y desarrollo puedes hacernos llegar tus sugerencias e impresiones través de nuestro grupo abierto de desarrollo en <b><a href="https://www.facebook.com/groups/223587212118/" title="(Grupo de facebook)" target="_blank" data-toggle="tooltip" data-placement="top" data-original-title="(Grupo de facebook)">facebook</a></b>.</p>
                 </div>
             </div>
             <div class="col-md-6">

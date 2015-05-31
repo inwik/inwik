@@ -15,37 +15,37 @@
         switch ($section){
             case 'proposals':
                 require_once DIR.'/app/controllers/proposals.php';
-                $p = new Proposal();
-                $p->index_proposals();
+                $proposal = new Proposal();
+                $proposal->index_proposals();
             break;
 
             case 'projects':
                 require_once DIR.'/app/controllers/projects.php';
-                $p = new Project();
-                $p->index_projects();
+                $project = new Project();
+                $project->index_projects();
             break;
 
             case 'events':
                 require_once DIR.'/app/controllers/events.php';
-                $p = new Event();
-                $p->index_events();
+                $event = new Event();
+                $event->index_events();
             break;
 
             case 'user':
                 require_once DIR.'/app/controllers/users.php';
-                $p = new User();
-                $p->index_users();
+                $user = new User();
+                $user->index_users();
             break;
         }
     }else{
         if (!isset($_SESSION["login"])){ //cargamos página de registro y login
             require_once DIR.'/app/controllers/home.php';
-            $h = new Home();
-            $h->index_home();
+            $home = new Home();
+            $home->index_home();
         }else{ //cargamos timeline
             require_once 'app/controllers/timeline.php';
-            $t = new Timeline();
-            $t->index_timeline();
+            $timeline = new Timeline();
+            $timeline->index_timeline();
         }
     }
 ?>
