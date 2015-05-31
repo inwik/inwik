@@ -5,7 +5,7 @@
 
         function index_timeline(){
             $data['page_title'] = PAGE_NAME;
-            $this->render('timeline', $data);
+            $this->render('timeline', 'timeline', $data);
         }
 
     }

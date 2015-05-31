@@ -23,12 +23,8 @@ main{
     }
 }
 
-aside{
-	background-color:#1a1a1a;
-}
-
 aside h4, aside p, #menu-mobile h4, #menu-mobile p{
-	color:#777777;
+	color:#bbb;
 }
 
 .aside-show-more{

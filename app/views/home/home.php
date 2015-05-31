@@ -5,22 +5,22 @@
             <li><a href="https://github.com/inwik/inwik" title="GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
         </ul>
    </div>
-    <div class="container home">
+    <div class="home">
         <div class="row">
             <div class="col-md-6">
-                <div id="texto">
+                <div id="texto" class="nomobile">
                     <header class="title">
-                        <h2>BIENVENIDOS A INWIK</h2>
+                        <h2>Bienvenidos a inwik</h2>
                     </header>
                     <p>Esta es una versión alpha de inwik, es decir, una versión aún muy temprana del proceso de desarrollo.</p>
                     <p>La mayoría de los modulos están incompletos o están parcialmente completados.</p>
                     <p>Puedes probar la parte de registro, perfil, timeline y propuestas inclusive su creación, edición y visionado.</p>
-                    <p>Si deseas ayudar con el testing y desarrollo puedes hacernos llegar tus sugerencias e impresiones través de nuestro grupo abierto de desarrollo en <b><a href="https://www.facebook.com/groups/223587212118/">facebook</a></b>.</p>
+                    <p>Si deseas ayudar con el testing y desarrollo puedes hacernos llegar tus sugerencias e impresiones través de nuestro grupo abierto de desarrollo en <b><a href="https://www.facebook.com/groups/223587212118/" title="facebook" target="_blank">facebook</a></b>.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div id="login">
-                    <form id="login-form" data-toggle="validator" method="post" action="">
+                    <form id="login-form" data-toggle="validator" method="post">
                         <h2>¿Tienes una cuenta?</h2>
                         <div class="form-group">
                             <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" maxlength="20" autocomplete="on" required>

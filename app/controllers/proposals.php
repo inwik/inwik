@@ -12,8 +12,7 @@
         function proposals_home(){
             $data['page_title'] = 'Propuestas';
             /*$data['prop_list'] = $this->_proposal->get_proposals();*/
-            $texto='Hello world!';
-            $this->render($texto, $data);
+            $this->render('proposals','home', $data);
         }
 
     }

@@ -310,9 +310,9 @@
             return false;
         }
 
-    // Register functions-----------------------------------------------------//
+    // Register & login functions-----------------------------------------------------//
 
-        // User register -- Registro de usuario
+        // Insert User
         function setUser()
         {
             $new_date=date ("Y-m-d H:i:s");
@@ -329,26 +329,21 @@
             return false;
         }
 
-    // Login functions-----------------------------------------------------//
         //Register user
         function registerUser(){
             if($id=$this->setUser()){
-                $email_key=md5($id . EMAIL_TOKEN);
+                $email_key=md5($id . sha1(GLOBAL_TOKEN.$this->pass) . EMAIL_TOKEN);
                 require_once DIR.'/app/models/email.php';
-                $e = new Email();
-                $e->to = $this->email;
-                $e->subject = "Activacion de cuenta en ". PAGE_NAME;
-                $e->body = "<html>
-                    <body>
-                        <p>Bienvenido/a a ". PAGE_NAME .", $this->user.</p>
-                        <p>Este es tu código de activación: $email_key</p>
-                        <p>¡Entra en este enlace, introduce tus datos y serás parte de esta gran comunidad!</p>
-                        <a href='" . PAGE_DOMAIN . "/?activation=$email_key'>" . PAGE_DOMAIN . "/?activation=$email_key</a>
-                        <p>Si tienes algún problema con tu registro ponte en contacto con nosotros a través de esta dirección:</p> <a href='mailto:". CONTACT_EMAIL ."'>". CONTACT_EMAIL ."</a>
-                        <p>¡Bienvenido/a!</p>
-                    <body>
-                </html>";
-                if ($e->sendEmail()){
+                $mail = new Email();
+                $mail->to = $this->email;
+                $mail->subject = "Activacion de cuenta en ". PAGE_NAME;
+                $mail->getEmail("register.php");
+                $mail->body = str_replace("{PAGE_NAME}", PAGE_NAME, $mail->body);
+                $mail->body = str_replace("{USER}", $this->user, $mail->body);
+                $mail->body = str_replace("{EMAIL_KEY}", $email_key, $mail->body);
+                $mail->body = str_replace("{PAGE_DOMAIN}", PAGE_DOMAIN, $mail->body);
+                $mail->body = str_replace("{CONTACT_EMAIL}", CONTACT_EMAIL, $mail->body);
+                if ($mail->sendEmail()){
                     return true;
                 }else{
                    return false;
@@ -389,20 +384,25 @@
         }
 
         //Active user account
-        function activeUser_account($name,$password,$email_key)
+        function activeUser($email_key)
         {
-            $password=sha1($this->global_token . $password);
-            $query = "SELECT id, password, creation_date FROM users WHERE name='$name'";
-            $answer = $this->_db->query($query)->fetch_row();
-            $newkey=sha1(md5($answer[2] . $answer[0] . $this->email_token) . $answer[1]); //$activation_key= sha1(md5($date . $id . $this->email_token) . $password);
-            $oldkey=sha1($email_key . $password); //$email_key=md5($date . $id . $this->email_token);
-            if ($newkey==$oldkey){
-                $query = "UPDATE users SET active_account=1 WHERE id='$answer[0]'";
-                if ( $this->_db->query($query))
-                return true;
+            //$email_key=md5($id . sha1(GLOBAL_TOKEN . $this->pass) . EMAIL_TOKEN);
+
+            $pass=sha1(GLOBAL_TOKEN . $this->pass);
+            $query = "SELECT id FROM users WHERE user='$this->user' AND password='$pass'";
+            $answer = $this->_db->query($query)->fetch_assoc();
+            if ($answer!=NULL){
+                $newkey=md5($answer["id"] . $pass . EMAIL_TOKEN);
+                if ($newkey==$email_key){
+                    $query = "UPDATE users SET active_account=1 WHERE id='".$answer["id"]."'";
+                    if ( $this->_db->query($query))
+                    return true;
+                    return false;
+                }
+                return false;
+            }else{
                 return false;
             }
-            return false;
         }
 
         //Update lastDate -- Actualizar último acceso

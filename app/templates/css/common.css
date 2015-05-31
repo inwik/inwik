@@ -2,6 +2,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
 	overflow-x:auto;
+    min-width: 300px;
 }
 
 img{
@@ -18,32 +19,10 @@ input{
     color:#aaa !important;
 }
 
-button, input[type=button], input[type=submit]{
-    cursor:pointer;
-}
-
-#principal button, #principal input[type=button], #save input{
-	background-color:#99CC33 !important;
-	cursor:pointer !important;
-	color:#222 !important;
-	box-shadow:none !important;
-}
-
-a{
-	text-decoration:none;
-}
-
-#map{
-	color:#777;
-}
-
-#wrapper{
-	position: fixed;
-	height: 100%;
-	width: 100%;
-	top:0;
-	left: 0;
-	z-index: -2;
+@media only screen and (max-width : 767px) {
+	.nomobile{
+        display:none;
+    }
 }
 
 #bgtransparent{
@@ -71,8 +50,7 @@ label{
 }
 
 header.title{
-  text-align: center;
-    text-transform: uppercase;
+    text-align: center;
 }
 
 /*Main--------------------------------------------------------------------------------*/
@@ -107,7 +85,7 @@ header.masthead{
     box-shadow: 0 2px 5px rgba(0,0,0,.26);
 }
 
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 767px) {
     header.masthead{
         position:fixed;
         box-shadow:none;
@@ -123,7 +101,7 @@ header.masthead a:hover{
 header.masthead ul{
     margin: 0px;
     padding: 0px;
-    text-transform: uppercase;
+    text-align: center;
 }
 
 header.masthead li{
@@ -166,13 +144,13 @@ header.masthead li{
     background-image: url(images/menu.svg);
 }
 
-@media only screen and (min-width : 901px) {
+@media only screen and (min-width : 768px) {
 	#menu-button-mobile{
         display:none;
     }
 }
 
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 767px) {
 	#logo{
         display:none;
     }
@@ -203,24 +181,10 @@ header.masthead li{
     }
 }
 
-@media only screen and (max-width : 900px) {
-	#top-menu ul{
-        display:table;
-        margin-left:auto;
-        margin-right:auto;
-    }
-}
-
 #top-menu li a{
 	color:#aaa;
 	padding: 18px;
     display: block;
-}
-
-@media only screen and (max-width : 900px) {
-	#top-menu li a{
-        padding: 6px 16px 8px 16px;
-    }
 }
 
 #tab-prop a:hover, #tab-prop .current{
@@ -261,15 +225,13 @@ header.masthead li{
 
 /*Aside------------------------------------------------------------------------------------*/
 aside.aside_left{
-    position: absolute;
-    top:0;
-    bottom: 0;
 	width:250px;
 	padding:100px 15px 0px 20px;
 	overflow-y: hidden;
+    float: left;
 }
 
-@media only screen and (max-width : 900px) {
+@media only screen and (max-width : 768px) {
 	aside.aside_left{
         display:none;
     }
@@ -307,8 +269,11 @@ aside p{
 
 /*HOME-------------------------------------------------------------------*/
 
-.home{
-  max-width: 800px;
+.home {
+    max-width: 800px;
+    padding: 50px 0;
+    margin-top: 56px;
+    margin-left: 200px;
 }
 
 .home p, .home h2{
@@ -344,22 +309,35 @@ aside p{
     padding: 10px;
 }
 
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : 992px) {
     #login-form input, #reg-form input{
         max-width: 300px;
         width: auto;
     }
 }
-
-@media only screen and (max-width : 900px) {
-	#video{
-        display:none;
+@media only screen and (max-width : 991px) {
+    .home{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 50px 15px;
     }
 }
 
-@media only screen and (max-width : 900px) {
-	#texto{
-        display:none;
+
+@media only screen and (max-width : 767px) {
+    .home{
+        margin-left: 0;
+        padding: 50px 15px;
+    }
+
+    .social_home{
+        top: 90px;
+        right: 10px;
+    }
+
+    .social_home li i {
+        font-size: 18pt;
+        padding: 5px;
     }
 }
 
@@ -389,7 +367,8 @@ aside p{
 }
 
 #login-error p, #reg-error p{
-    color:#DC2700;
+    color:#DC2700 !important;
+    font-size: 10pt;
 }
 
 /*Section---------------------------------------------*/
@@ -1349,31 +1328,4 @@ footer a{
 #attend{
 	background-image:url('images/icon-common.png');
 	background-position:-144px -32px;
-}
-
-
-/*-----SMS-------*/
-#sms_ajaxdb{
-	position:fixed;
-	margin-left:auto;
-	margin-right:auto;
-	top:20%;
-	left:35%;
-	background-color:rgba(0,0,0,0.3);
-	border-radius: 7px;
-	display:none;
-	z-index:5;
-	color:white;
-	padding:15px;
-}
-#sms_ajaxdb button{
-	float:right;
-	margin-top:6px;
-}
-.save_error{
-	color:red;
-	font-size: 12px;
-}
-#sms_error{
-	padding-top:100px; /*  provisional  */
 }

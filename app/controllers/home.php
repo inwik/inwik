@@ -7,17 +7,38 @@
             $data['page_title'] = PAGE_NAME;
             if ($_POST){
                 if(empty($_POST["user_reg"]) && empty($_POST["email_reg"]) && empty($_POST["pass_reg"])){ //login
+
                     $this->u->user=$_POST["username"];
                     $this->u->pass=md5($_POST["password"]);
                     @$loginrec=$_POST['loginrec'];
-                    if ($this->u->loginUser($loginrec)){
-                        //mostramos timeline
-                        $this->render('timeline','timeline', $data);
-                    }else{
-                        //mostramos de nuevo la pagina de inicio con error
-                        $data["reg_error"]="";
-                        $data["login_error"]=__("El nombre de usuario o contraseña no son válidos");
-                        $this->render('home','home', $data);
+
+                    if(!isset($_GET["activation"])){ //si no se recibe clave para activacion hacemos login normal
+
+                        if ($this->u->loginUser($loginrec)){
+                            //mostramos timeline
+                            $this->render('timeline','timeline', $data);
+                        }else{
+                            //mostramos de nuevo la pagina de inicio con error
+                            $data["reg_error"]="";
+                            $data["login_error"]=__("El nombre de usuario o contraseña no son válidos");
+                            $this->render('home','home', $data);
+                        }
+                    }else{ //si recibimos clave de activacion intentamos activar la cuenta
+                        if($this->u->activeUser($_GET["activation"])){
+                            if ($this->u->loginUser($loginrec)){
+                                //mostramos timeline
+                                $this->render('timeline','timeline', $data);
+                            }else{
+                                //mostramos de nuevo la pagina de inicio con error
+                                $data["reg_error"]="";
+                                $data["login_error"]=__("El nombre de usuario o contraseña no son válidos");
+                                $this->render('home','home', $data);
+                            }
+                        }else{
+                            $data["reg_error"]="";
+                            $data["login_error"]=__("El nombre de usuario, contraseña o clave de activación no son válidos.");
+                            $this->render('home','home', $data);
+                        }
                     }
                 }else{//register
                     $this->u->user = $_POST["user_reg"];

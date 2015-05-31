@@ -9,7 +9,7 @@
         function getEmail($file)
         {
             ob_start();                      // start capturing output
-            include($file);   // execute the file
+            include DIR."/app/views/email/$file";   // execute the file
             $content = ob_get_contents();    // get the contents from the buffer
             ob_end_clean();
 			$this->body=$content;
