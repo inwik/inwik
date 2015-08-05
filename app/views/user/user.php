@@ -22,5 +22,14 @@
                 </ul>
             </div>
         </div>
+        <section id="new-post">
+            <div id="new-post-avatar">
+                <img src="images/avatar/1.jpg">
+            </div>
+            <div id="new-post-text">
+                <div contenteditable="true" class="new-post-edit" placeholder="Añadir una nueva entrada"></div>
+                <button class="sendbutton">Enviar</button>
+            </div>
+        </section>
     </section>
 </div>

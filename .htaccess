@@ -2,26 +2,18 @@ AddType application/x-web-app-manifest+json .webapp
 AddHandler x-web-app-manifest+json .webapp
 
 Options +FollowSymLinks -MultiViews
-# Turn mod_rewrite on
+
+<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 
-## hide .php extension
-# To externally redirect /dir/foo.php to /dir/foo
-#RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
-#RewriteRule ^ %1 [R,L,NC]
+#SECTION
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?section=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/$ index.php?section=$1 [QSA,L]
 
-## To internally redirect /dir/foo to /dir/foo.php
-#RewriteCond %{REQUEST_FILENAME}.php -f
-#RewriteRule ^ %{REQUEST_URI}.php [L]
+#SECTION + TOKEN (ID/USERNAME/TITLE...)
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?section=$1&token=$2 [QSA,L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?section=$1&token=$2 [QSA,L]
 
-##section
-#Entrada: $1
-#salida: index.php?section=$1
-RewriteRule ^/(.*) /index.php?section=$1 [L]
-
-
-##section/token
-#Entrada: $1:$2
-#Salida: index.php?section=$1&action=view&token=$2
-RewriteRule ^/(.*):(.*) /index.php?section=$1&action=view&token=$2 [L]
+#CON [QSA] PODEMOS AÑADIR FUNCIONES MEDIANTE URL-GET (ejemplo: inwik.org/propuestas/titulodeejemplo/?action=delete)
+</IfModule>

@@ -6,14 +6,17 @@
         function index_users(){
             @$action=$_GET["action"];
             switch($action){
-                case 'view':
-                    $data['page_title'] = PAGE_NAME;
-                    $this->render('user', 'user', $data);
+                case 'delete':
+
                 break;
 
                 default:
-                    $data['page_title'] = PAGE_NAME;
-                    $this->render('user', 'user', $data);
+                    if($_GET["token"]){
+                        $data['page_title'] = PAGE_NAME;
+                        $this->render('user', 'user', $data);
+                    }else{
+                        echo "error 404";
+                    }
             }
         }
 

@@ -3,7 +3,7 @@
     <div id="notifications-panel"><div id="notifications-panel-wrapper"></div><div id="notifications-actions"></div></div>
     <div id="notifications-wrapper"></div>
     <div id="logo">
-        <a href="<?=PAGE_DOMAIN?>"><img src="app/templates/img/layout/logo-header.svg"/></a>
+        <a href="<?=PAGE_DOMAIN?>"><img src="<?=PAGE_DOMAIN?>/app/templates/img/layout/logo-header.svg"/></a>
     </div>
     <nav id="top-menu">
         <ul>
