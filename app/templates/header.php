@@ -7,9 +7,9 @@
     </div>
     <nav id="top-menu">
         <ul>
-            <li id="tab-prop"><a href="<?=__("propuestas")?>"><?=__("Propuestas")?></a></li>
-            <li id="tab-proj"><a href="<?=__("proyectos")?>"><?=__("Proyectos")?></a></li>
-            <li id="tab-event"><a href="<?=__("eventos")?>"><?=__("Eventos")?></a></li>
+            <li id="tab-prop"><a href="/<?=__("propuestas")?>"><?=__("Propuestas")?></a></li>
+            <li id="tab-proj"><a href="/<?=__("proyectos")?>"><?=__("Proyectos")?></a></li>
+            <li id="tab-event"><a href="/<?=__("eventos")?>"><?=__("Eventos")?></a></li>
         </ul>
     </nav>
     <nav id="right-actions">
