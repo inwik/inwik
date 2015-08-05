@@ -15,7 +15,7 @@
 	switch( $language )
 	{
 		case 'en':
-			$l10n = 'en_GB';
+			$l10n = 'en_US';
         break;
 
         case 'es':
@@ -26,11 +26,10 @@
 			$l10n = 'es_ES';
 	}
 
-
-	if( file_exists(DIR . '/app/languages/'. $l10n .'.mo') )
+	if( file_exists(DIR.'/app/languages/'.$l10n.'/'.$l10n.'.mo') )
 	{
 		$gettext_tables = new gettext_reader(
-				new CachedFileReader(RAIZ . '/app/languages/'. $l10n .'.mo')
+				new CachedFileReader(DIR.'/app/languages/'.$l10n.'/'.$l10n.'.mo')
 		);
 		$gettext_tables->load_tables();
 	}

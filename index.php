@@ -13,19 +13,19 @@
         $section=$_GET['section'];
 
         switch ($section){
-            case 'proposals':
+            case __("propuestas"):
                 require_once DIR.'/app/controllers/proposals.php';
                 $proposal = new Proposal();
                 $proposal->index_proposals();
             break;
 
-            case 'projects':
+            case __("proyectos"):
                 require_once DIR.'/app/controllers/projects.php';
                 $project = new Project();
                 $project->index_projects();
             break;
 
-            case 'events':
+            case __("eventos"):
                 require_once DIR.'/app/controllers/events.php';
                 $event = new Event();
                 $event->index_events();

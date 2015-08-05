@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: inwik\n"
+"POT-Creation-Date: 2015-08-05 18:29+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: albertoi <alberto.eps@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
+
+#: ../../controllers/home.php:23 ../../controllers/home.php:34
+msgid "El nombre de usuario o contraseña no son válidos"
+msgstr "El nombre de usuario o contraseña no son válidos"
+
+#: ../../controllers/home.php:39
+msgid "El nombre de usuario, contraseña o clave de activación no son válidos."
+msgstr ""
+"El nombre de usuario, contraseña o clave de activación no son válidos."
+
+#: ../../controllers/home.php:52
+msgid "Ya hay un usuario registrado con este nombre o e-mail"
+msgstr "Ya hay un usuario registrado con este nombre o e-mail"
+
+#: ../../templates/header.php:10
+msgid "propuestas"
+msgstr "propuestas"
+
+#: ../../templates/header.php:10
+msgid "Propuestas"
+msgstr "Propuestas"
+
+#: ../../templates/header.php:11
+msgid "proyectos"
+msgstr "proyectos"
+
+#: ../../templates/header.php:11
+msgid "Proyectos"
+msgstr "Proyectos"
+
+#: ../../templates/header.php:12
+msgid "eventos"
+msgstr "eventos"
+
+#: ../../templates/header.php:12
+msgid "Eventos"
+msgstr "Eventos"
+
+#: ../../views/email/register.php:3
+msgid "Bienvenido/a a"
+msgstr "Bienvenido/a a"
+
+#: ../../views/email/register.php:4
+msgid "Este es tu código de activación"
+msgstr "Este es tu código de activación"
+
+#: ../../views/email/register.php:5
+msgid ""
+"¡Entra en este enlace, introduce tus datos y serás parte de esta gran "
+"comunidad!"
+msgstr ""
+"¡Entra en este enlace, introduce tus datos y serás parte de esta gran "
+"comunidad!"
+
+#: ../../views/email/register.php:7
+msgid ""
+"Si tienes algún problema con tu registro ponte en contacto con nosotros a "
+"través de esta dirección"
+msgstr ""
+"Si tienes algún problema con tu registro ponte en contacto con nosotros a "
+"través de esta dirección"
+
+#: ../../views/email/register.php:8
+msgid "¡Bienvenido/a!"
+msgstr "¡Bienvenido/a!"
+
+#: ../../views/header/usermenu.php:21
+msgid "Salir"
+msgstr "Salir"
+
+#: ../../views/home/register_sucess.php:3
+msgid "Te has registrado correctamente"
+msgstr "Te has registrado correctamente"
+
+#: ../../views/home/register_sucess.php:4
+msgid ""
+"Hemos enviado un email a la dirección de correo que nos has facilitado con "
+"un enlace único para poder activar la cuenta."
+msgstr ""
+"Hemos enviado un email a la dirección de correo que nos has facilitado con "
+"un enlace único para poder activar la cuenta."
