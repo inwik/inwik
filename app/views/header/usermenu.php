@@ -4,14 +4,13 @@
     if(!isset($_SESSION["login"])){
 ?>
             <li id="login-header"><a href="<?=PAGE_DOMAIN?>" title="entrar" data-toggle="tooltip" data-placement="bottom"><i class="glyphicon glyphicon-off"></i></a></li>
-        </ul>
 <?php
     }else{
         $this->u->user=$_SESSION["login"]["user"];
 ?>
             <li id="user-header">
                 <a href="/user/<?=$this->u->user?>" title="Perfil Social" data-toggle="tooltip" data-placement="bottom">
-                    <img src="<?=PAGE_DOMAIN?>/app/templates/img/avatar/user.svg"/>
+                    <img src="<?=PAGE_DOMAIN?>/app/templates/img/avatar/<?=$this->u->avatar()?>" class="img-circle"/>
                     <span><?=$this->u->user?></span>
                 </a>
             </li>

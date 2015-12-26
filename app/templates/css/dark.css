@@ -3,11 +3,11 @@ body{
 }
 
 h1,h2,h3,h4,h5,p,ul{
-	color:#bbb;
+	color:#ddd;
 }
 
 main{
-	background-color:#333333;
+	background-color:#1a1a1a;
 }
 
 #principal input, section input, section textarea, #editor{
@@ -37,6 +37,10 @@ aside h4, aside p, #menu-mobile h4, #menu-mobile p{
 
 section{
 	color:white;
+}
+
+section.section_main{
+      background-color:  #333;
 }
 
 article{
@@ -142,6 +146,10 @@ article{
 #user-profile h4{
 	color:#ddd;
 	font-weight:normal;
+}
+
+#new-post{
+      background-color:#282828;
 }
 
 #new-post textarea{

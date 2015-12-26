@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="robots" content="noindex,nofollow" >
-		<title><?=$data['page_title']?></title>
+		<title><?=$data['page_title']." | ".PAGE_NAME?></title>
         <link rel="shortcut icon" sizes="196x196" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon196.png">
         <link rel="shortcut icon" sizes="128x128" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon128.png">
 		<link rel="apple-touch-icon-precomposed" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon.png"/>
@@ -16,8 +16,8 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
        	<link rel="stylesheet" href="<?=PAGE_DOMAIN?>/vendor/normalize.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -46,7 +46,7 @@
            require_once DIR.'/app/templates/footer.php';
         ?>
         <!-- end: footer -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="<?=PAGE_DOMAIN?>/vendor/validator.min.js"></script>
         <script src="<?=PAGE_DOMAIN?>/vendor/cookiechoices/cookiechoices.js"></script>
         <script>

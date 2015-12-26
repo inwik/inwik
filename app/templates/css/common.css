@@ -214,13 +214,12 @@ header.masthead li{
   font-size: 140%;
 }
 
-#user-header img{
-    height:25px;
-    border-radius: 200px;
-}
-
 #user-header span{
 	vertical-align:top;
+}
+
+#user-header img{
+      width: 24px;
 }
 
 /*Aside------------------------------------------------------------------------------------*/
@@ -245,26 +244,13 @@ aside h4{
 	margin-bottom:5px;
 }
 
-aside span{
-	display:inline-block;
-	height:16px;
-	width:16px;
-	margin-right:3px;
-	opacity:0.5;
-}
-
 aside img{
 	margin-right:5px;
-    border-radius:200px;
 }
 
 aside p{
 	font-size:90%;
 	margin: 5px 0 5px 0;
-}
-
-.aside-show-more{
-	font-size:80%;
 }
 
 /*HOME-------------------------------------------------------------------*/
@@ -380,13 +366,6 @@ section.section_main{
 
 /*Article---------------------------------------------*/
 
-article.post{
-  margin-bottom: 30px;
-  padding: 30px;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-}
-
 #title-form input{
     width:40%;
 }
@@ -404,6 +383,40 @@ article.post{
 	padding-top:60px;
 	padding-bottom:100px;
 	position:static;
+}
+
+/*cards*/
+.card{
+  margin-bottom: 15px;
+    margin-top: 15px;
+  padding: 25px;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+
+.card .card-title>a{
+    float: left;
+    color: white;
+    font-size: 120%;
+}
+
+.card .card-date{
+	float:right;
+    font-size:80%;
+}
+
+.card .card-text{
+	font-size:90%;
+    margin-top:25px;
+    text-align:justify;
+}
+
+.card .card-actions>a{
+	margin-top:10px;
+    font-size:90%;
+	margin-right:30px;
+    display:inline-block;
+    color:#ccc;
 }
 
 /*proposals-----------------------*/
@@ -501,37 +514,6 @@ article.post{
     }
 }
 
-.link-proposal{
-	font-size:120%;
-}
-
-.date-proposal{
-	float:right;
-    font-size:80%;
-}
-
-.description-proposal{
-	font-size:90%;
-    margin-top:25px;
-    text-align:justify;
-}
-
-.action-proposal{
-	margin-top:10px;
-}
-
-.action-proposal a{
-	font-size:90%;
-	margin-right:30px;
-    display:inline-block;
-}
-
-@media only screen and (max-width : 450px) {
-    .action-proposal a{
-        margin-right:10px;
-    }
-}
-
 /*proposals-viewer*/
 #proposal-view-action-general{
 	margin-top:55px;
@@ -624,10 +606,6 @@ article.post{
 .user-description{
     display:block;
     margin-top:5px !important;
-}
-
-#user-avatar-info{
-    min-height: 170px;
 }
 
 #user-info input{
@@ -776,7 +754,6 @@ article.post{
 @-ms-keyframes bounceG{ 0%{ -ms-transform:scale(1.2); opacity:1 } 100%{ -ms-transform:scale(0.7); opacity:0.1 } }
 
 #user-info{
-    margin-left:200px;
     list-style: none;
 }
 
@@ -788,9 +765,8 @@ article.post{
     }
 }
 
-#user-info li{
-    padding:3px 0;
-	min-height: 30px;
+#user-info .glyphicon{
+    margin-right: 20px;
 }
 
 #user-social-networks{
@@ -822,11 +798,6 @@ article.post{
     #realname, #description{
         text-align: center;
     }
-}
-
-#user-info div{
-    padding: 2px 5px;
-    margin-left: 30px;
 }
 
 #facebook{
@@ -861,7 +832,8 @@ article.post{
 }
 
 #new-post{
-	min-height:80px;
+    margin-top: 20px;
+    padding: 20px;
 }
 
 #new-post-text {
@@ -1021,7 +993,6 @@ article.post{
 }
 
 #share-post-dialog img{
-	border-radius: 200px;
 	vertical-align: middle;
 }
 

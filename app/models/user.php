@@ -3,7 +3,7 @@
 
     class Users_Model extends Database{
 
-        var $id, $user, $email, $pass, $name, $residence, $description, $studies, $jobs;
+        var $id, $user, $email, $pass, $name, $residence, $description, $studies, $jobs, $friend;
 
         function __construct(){
            parent::__construct();
@@ -11,23 +11,23 @@
 
         // Read functions-----------------------------------------------------//
 
-        // Read user id -- leer id del usuario
-        function getId($user)
+        // Get user info from username
+        function get()
         {
-            $query = "SELECT id FROM users WHERE user='$this->user'";
+            $query = "SELECT * FROM users WHERE user='$this->user'";
             $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
-            return $answer["id"];
+            return $answer;
             return false;
         }
 
-        // Read name -- Leer nombre
-        function getUser_name($id)
+        // Get user info from id
+        function getWhereId()
         {
-            $query = "SELECT name FROM users WHERE id='$id'";
-            $answer = $this->_db->query($query)->fetch_row();
+            $query = "SELECT * FROM users WHERE id='$this->id'";
+            $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
-            return $answer[0]; //name
+            return $answer;
             return false;
         }
 
@@ -40,26 +40,6 @@
                 }
                 return $users_list;
             }
-            return false;
-        }
-
-        // Read user info -- leer información del usuario
-
-        function getUser_info($id)
-        {
-            $query = "SELECT name, avatar FROM users WHERE id='$id'";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return $answer;
-            return false;
-        }
-
-        function readUser_info($name)
-        {
-            $query = "SELECT id, real_name, birthdate, birthplace, residence_place, sex, description, studies, jobs FROM users WHERE name='$name'";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return $answer;
             return false;
         }
 
@@ -127,14 +107,13 @@
             return false;
         }
 
-        function getUser_post($iduser, $limit){
-            $query = "SELECT DISTINCT * FROM profile_posts INNER JOIN profile_posts_published ON profile_posts.post_publisher=profile_posts_published.post_publisher AND profile_posts.post_date=profile_posts_published.post_date WHERE profile_posts_published.profile_user=$iduser ORDER BY profile_posts.edition_date DESC LIMIT $limit";
-            $answer = $this->_db->query($query)->fetch_row();
+        function getPosts($limit=false){
+            $query = "SELECT DISTINCT * FROM profile_posts INNER JOIN profile_posts_published ON profile_posts.post_publisher=profile_posts_published.post_publisher AND profile_posts.post_date=profile_posts_published.post_date WHERE profile_posts_published.profile_user=$this->id ORDER BY profile_posts.edition_date DESC LIMIT $limit";
             if($answer=$this->_db->query($query)){
                 while($fila = $answer->fetch_row()){
-                    $post_list[]=$fila;
+                    $posts_list[]=$fila;
                 }
-                return $post_list;
+                return $posts_list;
             }
             return false;
         }
@@ -195,12 +174,11 @@
     //Avatar functions-----------------------------------------------------//
 
         // Read if user has avatar -- Comprobar si el usuario tiene avatar
-        function readUserAvatar(){
+        function avatar(){
                //comrpobar si tiene avatar subido, sino se muestra el generico
-            $dir="images/avatar";
-            $avatar=$dir."/".$this->id.".jpg";
-            $generic_avatar=$dir."/"."user.svg";
-            $query = "SELECT avatar FROM users WHERE id='$id'";
+            $avatar=$this->id.".jpg";
+            $generic_avatar="user.svg";
+            $query = "SELECT avatar FROM users WHERE id='$this->id'";
             $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer["avatar"]==1){
                 $img=$avatar;
@@ -227,85 +205,69 @@
             return false;
         }
 
-    //Friends functions-----------------------------------------------------//
+    //Follow functions-----------------------------------------------------//
 
-        // Send friendly petition -- Enviar solicitud de amistad
-        function sendUser_friendly($iduser, $idfriend){
-            $query = "INSERT INTO friends VALUES ('$iduser', '$idfriend', default)";
-            if ( $this->_db->query($query))
-            return true;
-            return false;
-        }
-
-        // Confirm user friendly -- Confirmar amistad
-        function confirmUser_friendly($iduser, $idfriend){
+        function follow(){
             $date=date ("Y-m-d H:i:s");
-
-            $query = "UPDATE friends SET friendly_date = '$date' WHERE (user1='$idfriend' AND user2='$iduser')";
+            $query = "INSERT INTO follows VALUES ('$this->id', '$this->friend', '$date')";
             if ( $this->_db->query($query))
             return true;
             return false;
         }
 
-        // Count friends -- contar amigos
-        function countUser_friends($iduser)
+        function getFollowings($limit=false)
         {
-            $query = "SELECT count(*) FROM friends WHERE ((user1='$iduser' OR user2='$iduser') AND friendly_date IS NOT NULL)";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return $answer[0];
-            return false;
-        }
-
-        // Read friends -- leer amigos
-        function readUser_friends($iduser, $limit)
-        {
-            $query = "SELECT * FROM friends WHERE ((user1='$iduser' OR user2='$iduser') AND friendly_date IS NOT NULL) ORDER BY friendly_date DESC LIMIT $limit";
+            $query = "SELECT * FROM users WHERE id = (SELECT follower FROM follows WHERE following='$this->id') LIMIT $limit";
             if($answer=$this->_db->query($query)){
-                while($fila = $answer->fetch_row()){
-                    if($fila[0]!=$iduser){ //vemos si el id del amigo es distinto del id del perfil, si es el mismo se coge $fila[1]
-                        $friends_list[]=$fila[0];
-                    }else{
-                        $friends_list[]=$fila[1];
-                    }
+                while($fila = $answer->fetch_assoc()){
+                    $followings_list[]=$fila;
                 }
-                return $friends_list;
+                return $followings_list;
             }
             return false;
         }
 
-        // Are friends -- Son amigos
-        function areFriends($iduser, $idfriend)
+        function getFollowers($limit=false)
         {
-            $query = "SELECT * FROM friends WHERE (((user1='$iduser' AND user2='$idfriend') OR (user1='$idfriend' AND user2='$iduser')) AND friendly_date IS NOT NULL)";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL) //are friends
-            return true;
+            $query = "SELECT * FROM users WHERE id = (SELECT following FROM follows WHERE follower='$this->id') LIMIT $limit";
+            if($answer=$this->_db->query($query)){
+                while($fila = $answer->fetch_assoc()){
+                    $followers_list[]=$fila;
+                }
+                return $followers_list;
+            }
             return false;
         }
 
-        function iHaventConfirmedFriendly($iduser,$idfriend){
-            $query = "SELECT * FROM friends WHERE ((user1='$idfriend' AND user2='$iduser') AND friendly_date IS NULL)";
-            $answer = $this->_db->query($query)->fetch_row();
-            if ($answer!=NULL)
-            return true;
-            return false;
-        }
-
-        function iSendFriendlyPetition($iduser,$idfriend){
-            $query = "SELECT * FROM friends WHERE ((user1='$iduser' AND user2='$idfriend') AND friendly_date IS NULL)";
+        function isFollower()
+        {
+            $query = "SELECT * FROM follows WHERE follower='$this->id' AND following='$this->friend'";
             $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
             return true;
             return false;
         }
 
-        //Delete friendly -- Borrar amistad
-        function cancelFriendly($iduser, $idfriend)
+        function isFollowing()
         {
-            $query = "DELETE FROM friends WHERE ((user1='$iduser' AND user2='$idfriend') OR (user1='$idfriend' AND user2='$iduser'))";
+            $query = "SELECT * FROM follows WHERE follower='$this->friend' AND following='$this->id'";
             $answer = $this->_db->query($query)->fetch_assoc();
             if ($answer!=NULL)
+            return true;
+            return false;
+        }
+
+        function areFriends()
+        {
+            if($this->isFollower() && $this->isFollowing())
+            return true;
+            return false;
+        }
+
+        function unfollow()
+        {
+            $query = "DELETE FROM follows WHERE follower='$this->id' AND following='$this->friend'";
+            if ( $this->_db->query($query))
             return true;
             return false;
         }

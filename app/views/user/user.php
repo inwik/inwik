@@ -1,35 +1,60 @@
 <div class="container full_width">
     <aside class='aside_left'>
-        <p>Bla bla bla</p>
-        <p>Bla bla bla</p>
-        <p>Bla bla bla</p>
-        <p>Bla bla bla</p>
+        <h4><i class="fa fa-users"></i> <?=("Redes sociales")?></h4>
+        <p><?=("Siguiendo")?></p>
+        <?=$data["followings"]?>
+        <a href="#" title="<?=_("Ver más")?>"><i class="fa fa-plus"></i></a>
+        <p><?=("Seguidores")?></p>
+        <?=$data["followers"]?>
+        <a href="#" title="<?=_("Ver más")?>"><i class="fa fa-plus"></i></a>
+        <h4><i class="fa fa-trophy"></i> Logros</h4>
+        <p></p>
+        <p></p>
+        <p></p>
+        <a href="#" title="<?=_("Ver más")?>"><i class="fa fa-plus"></i></a>
+        <h4><i class="fa fa-calendar-check-o"></i> Eventos próximos</h4>
+        <p></p>
+        <p></p>
+        <p></p>
+        <a href="#" title="<?=_("Ver más")?>"><i class="fa fa-plus"></i></a>
+        <h4><i class="fa fa-star"></i> Subscripciones</h4>
+        <p></p>
+        <p></p>
+        <p></p>
+        <a href="#" title="<?=_("Ver más")?>"><i class="fa fa-plus"></i></a>
+        <h4><i class="fa fa-user-secret"></i> Modo anónimo</h4>
     </aside>
     <section class='section_main full_width'>
-        <div id="user-profile" data-profileid="1" data-publisherid="1">
-            <h3 id="realname" placeholder="Nombre real" contenteditable="false">Alberto Rodríguez Merino</h3>
-            <p id="description" placeholder="Descripción" contenteditable="false">Un joven emprendedor con ganas de cambiar el mundo y glitchearlo. Gamer, otaku, web designer y amante de la gastronomía nipona.</p>
-            <div id="user-avatar-info">
-                <div id="user-avatar">
-                    <img class="img-circle" src="/app/templates/img/avatar/1.jpg" name="avatar">
-                    <p id="username" contenteditable="false">albertoi</p>
+        <div id="user-profile" data-profileid="<?=$data["id"]?>">
+            <h3 id="realname" placeholder="Nombre real" contenteditable="false"><?=$data["name"]?></h3>
+            <p id="description" placeholder="Descripción" contenteditable="false"><?=$data["description"]?></p>
+            <div class="row">
+                <div class="col-md-3" id="user-avatar">
+                    <img class="img-circle" src="/app/templates/img/avatar/<?=$data["avatar"]?>" name="avatar">
+                    <p id="username" contenteditable="false"><?=$_GET["token"]?></p>
                 </div>
-                <ul id="user-info">
-                    <li class="studies"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><span class="action-icon"></span><div placeholder="Estudios o conocimientos" contenteditable="false">Graphic Designer &amp; Software Developer</div></li>
-                    <li class="jobs"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><div placeholder="Trabajos" contenteditable="false">http://sirym.com</div></li>
-                    <li class="residence"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><span class="action-icon"></span><div placeholder="Ubicación" contenteditable="false">Badajoz</div></li>
-                    <button class="btn btn-default edit-info">Editar información</button>
-                </ul>
+                <div class="col-md-9">
+                    <ul id="user-info">
+                        <li class="studies"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><div placeholder="Estudios o conocimientos" contenteditable="false"><?=$data["studies"]?></div></li>
+                        <li class="jobs"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span><div placeholder="Trabajos" contenteditable="false"><?=$data["jobs"]?></div></li>
+                        <li class="residence"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><div placeholder="Ubicación" contenteditable="false"><?=$data["residence"]?></div></li>
+                        <?=$data["info_button"]?>
+                    </ul>
+                </div>
             </div>
         </div>
         <section id="new-post">
             <div id="new-post-avatar">
-                <img src="images/avatar/1.jpg">
+                <img src="/app/templates/img/avatar/<?=$data["avatar"]?>">
             </div>
             <div id="new-post-text">
                 <div contenteditable="true" class="new-post-edit" placeholder="Añadir una nueva entrada"></div>
-                <button class="sendbutton">Enviar</button>
+                <button class="sendbutton btn">Enviar</button>
             </div>
+        </section>
+        <section id="user-posts">
+            <?=$data["post_cards"]?>
         </section>
     </section>
 </div>
+<script src="/app/views/user/user.js"></script>

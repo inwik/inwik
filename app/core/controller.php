@@ -9,6 +9,10 @@
         {
             $this->loadModel('user');
             $this->u = new Users_Model();
+            if(isset($_SESSION["login"])){
+                $this->u->user=$_SESSION["login"]["user"];
+                $this->u->id=$this->u->get()["id"];
+            }
         }
 
         public function loadModel($modelName){
@@ -27,14 +31,6 @@
             ob_end_clean();
             return $page;
         }
-
-        /*public function preRender(){
-            if(!isset($_SESSION["login"])){
-                $this->data["user"]="hola";
-            }else{
-                $this->data["user"]=$_SESSION["login"]["user"];
-            }
-        }*/
 
         public function render($folder, $view, $data=false){
             $page=$this->loadView($folder, $view, $data);
