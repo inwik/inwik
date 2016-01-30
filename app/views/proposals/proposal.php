@@ -6,6 +6,6 @@
         <p>Bla bla bla</p>
     </aside>
     <section class='section_main full_width'>
-        <?=$data["proposal_title"]?>
+        <?=$this->data["proposal_title"]?>
     </section>
 </div>

@@ -15,6 +15,7 @@ $(document).ready(function() {
             success:  function (response) {
                 if (response!=false){
                     $("#follow-button").replaceWith(response);
+                    location.reload();
                 }else{
                     alert("Ha habido un error");
                 }
@@ -37,6 +38,7 @@ $(document).ready(function() {
             success:  function (response) {
                 if (response!=false){
                     $("#unfollow-button").replaceWith(response);
+                    location.reload();
                 }else{
                     alert("Ha habido un error");
                 }

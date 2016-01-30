@@ -1,9 +1,6 @@
 <?php
     class Controller {
-        private $view = null;
-        private $folder = null;
-        private $data = array();
-        private $modelName;
+        public $data = array();
 
         public function __construct()
         {
@@ -23,8 +20,8 @@
             require DIR."/app/helpers/$file.php";
         }
 
-        public function loadView($folder,$view,$data=false){
-            @extract($data);
+        public function loadView($folder,$view){
+            @extract($this->data);
             ob_start();                      // start capturing output
             @include DIR."/app/views/".$folder."/".$view.".php";   // execute the file
             $page = ob_get_contents();    // get the contents from the buffer
@@ -32,9 +29,8 @@
             return $page;
         }
 
-        public function render($folder, $view, $data=false){
-            $page=$this->loadView($folder, $view, $data);
-            //$this->preRender();
+        public function render($folder, $view){
+            $page=$this->loadView($folder, $view);
             require 'app/templates/page.php';
         }
     }

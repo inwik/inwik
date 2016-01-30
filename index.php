@@ -6,9 +6,6 @@
     require_once DIR.'/app/languages/functions.php';
 	require_once DIR.'/app/core/controller.php';
 
-    //se instancia al controlador
-	$controller = new Controller();
-
     if (isset($_GET["section"])){
         $section=$_GET['section'];
 

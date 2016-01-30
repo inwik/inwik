@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="robots" content="noindex,nofollow" >
-		<title><?=$data['page_title']." | ".PAGE_NAME?></title>
+		<title><?=$this->data['page_title']." | ".PAGE_NAME?></title>
         <link rel="shortcut icon" sizes="196x196" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon196.png">
         <link rel="shortcut icon" sizes="128x128" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon128.png">
 		<link rel="apple-touch-icon-precomposed" href="<?=PAGE_DOMAIN?>/app/templates/img/icons/icon.png"/>

@@ -33,7 +33,7 @@
                             </label>
                         </div>
                         <div id="login-error">
-                            <p><?=$data["login_error"]?></p>
+                            <p><?=$this->data["login_error"]?></p>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Entrar</button>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="g-recaptcha" data-sitekey="6Le_mgUTAAAAACn4uLXz6wDsQL9tR2Fw5AmD3JHU"></div>-->
                         <div id="reg-error">
-                            <p><?=$data["reg_error"]?></p>
+                            <p><?=$this->data["reg_error"]?></p>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Continuar</button>

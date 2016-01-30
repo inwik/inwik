@@ -222,7 +222,9 @@
                 while($fila = $answer->fetch_assoc()){
                     $followings_list[]=$fila;
                 }
-                return $followings_list;
+                if(!empty($followings_list)){
+                    return $followings_list;
+                }
             }
             return false;
         }
@@ -234,7 +236,9 @@
                 while($fila = $answer->fetch_assoc()){
                     $followers_list[]=$fila;
                 }
-                return $followers_list;
+                if(!empty($followers_list)){
+                    return $followers_list;
+                }
             }
             return false;
         }

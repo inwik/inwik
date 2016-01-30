@@ -1,1 +1,1 @@
-<div class="alert alert-danger" role="alert"><?=$data?></div>
+<div class="alert alert-danger" role="alert"><?=$this->data?></div>

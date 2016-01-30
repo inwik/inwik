@@ -7,14 +7,14 @@
             @$action=$_GET["action"];
             switch($action){
                 case 'logout':
-                    $data['page_title'] = PAGE_NAME;
+                    $this->data['page_title'] = PAGE_NAME;
                     $this->u->logout();
-                    $this->render('home', 'home', $data);
+                    $this->render('home', 'home', $this->data);
                 break;
 
                 default:
-                    $data['page_title'] = PAGE_NAME;
-                    $this->render('timeline', 'timeline', $data);
+                    $this->data['page_title'] = PAGE_NAME;
+                    $this->render('timeline', 'timeline', $this->data);
             }
         }
 
