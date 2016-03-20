@@ -766,20 +766,13 @@ section.section_main{
 }
 
 #user-info .glyphicon{
-    margin-right: 20px;
-}
-
-#user-social-networks{
-	margin-top:15px;
-}
-
-#user-info span, #user-social-networks span{
-	display:inline-block;
-	height:16px;
-	width:16px;
+    margin-right: 10px;
 }
 
 #user-info span{
+	display:inline-block;
+	height:16px;
+	width:16px;
     float: left;
 }
 
