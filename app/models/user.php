@@ -318,7 +318,7 @@
         }
 
         //Login user
-        function login($loginrec){
+        function login($loginrec=false){
             $pass=sha1(GLOBAL_TOKEN.$this->pass);
             $query = "SELECT password FROM users WHERE user='$this->user' AND active_account=1";
             $answer = $this->_db->query($query)->fetch_assoc(); //bd_password
@@ -328,9 +328,9 @@
                 $_SESSION['login']['user']=$this->user;
                 $_SESSION['login']['pass']=$this->pass; //password solo con el md5
 
-                if($loginrec==1){
-                    $usercookie = setcookie("username", $this->user, strtotime('+15 days'), "/", PAGE_DOMAIN);
-                    $passcookie = setcookie("password", $this->pass, strtotime('+15 days'), "/", PAGE_DOMAIN);
+                if($loginrec=='on'){
+                    setcookie("user", $this->user, strtotime('+15 days'));
+                    setcookie("pass", $this->pass, strtotime('+15 days'));
                 }
                 return true;
             }
@@ -341,7 +341,8 @@
         function logout(){
             unset($_SESSION["login"]);
             session_destroy();
-
+            setcookie("user", $this->user, strtotime('-15 days'));
+            setcookie("pass", $this->pass, strtotime('-15 days'));
 			Header("Location: ".PAGE_DOMAIN);
         }
 

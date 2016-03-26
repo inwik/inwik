@@ -9,6 +9,12 @@
             if(isset($_SESSION["login"])){
                 $this->u->user=$_SESSION["login"]["user"];
                 $this->u->id=$this->u->get()["id"];
+            }elseif(isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){
+                $this->u->user=$_COOKIE["user"];
+                $this->u->pass=$_COOKIE["pass"];
+                if(!$this->u->login()){
+                    $this->u->logout();
+                }
             }
         }
 

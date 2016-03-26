@@ -10,7 +10,7 @@
 
                     $this->u->user=$_POST["username"];
                     $this->u->pass=md5($_POST["password"]);
-                    @$loginrec=$_POST['loginrec'];
+                    $loginrec=$_POST['loginrec'];
 
                     if(!isset($_GET["activation"])){ //si no se recibe clave para activacion hacemos login normal
 

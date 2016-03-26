@@ -1,6 +1,4 @@
 <?php
-    require_once 'app/core/controller.php';
-
     class Proposal extends Controller{
 
         function index_proposals(){

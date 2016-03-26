@@ -1,13 +1,10 @@
 <?php
-    require_once 'app/core/controller.php';
-
     class User extends Controller{
 
         function index_users(){
             @$action=$_GET["action"];
             switch($action){
                 case 'delete':
-
                 break;
 
                 case 'follow':
