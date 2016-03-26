@@ -4,6 +4,7 @@
 
     require_once 'app/core/config.php';
     require_once DIR.'/app/languages/functions.php';
+    require_once DIR.'/app/models/database.php';
 	require_once DIR.'/app/core/controller.php';
 
     if (isset($_GET["section"])){

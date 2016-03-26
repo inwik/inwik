@@ -21,7 +21,6 @@
         }
 
         public function loadView($folder,$view){
-            @extract($this->data);
             ob_start();                      // start capturing output
             @include DIR."/app/views/".$folder."/".$view.".php";   // execute the file
             $page = ob_get_contents();    // get the contents from the buffer

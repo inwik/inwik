@@ -1,6 +1,4 @@
 <?php
-    require_once 'app/helpers/database.php';
-
     class Users_Model extends Database{
 
         var $id, $user, $email, $pass, $name, $residence, $description, $studies, $jobs, $friend;
