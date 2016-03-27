@@ -34,6 +34,12 @@
                 $user = new User();
                 $user->index_users();
             break;
+
+            case 'notify':
+                require_once DIR.'/app/controllers/notifications.php';
+                $notify = new Notification();
+                $notify->index_notifications();
+            break;
         }
     }else{
         if (!isset($_SESSION["login"])){ //cargamos página de registro y login

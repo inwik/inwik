@@ -49,6 +49,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script src="<?=PAGE_DOMAIN?>/vendor/validator.min.js"></script>
         <script src="<?=PAGE_DOMAIN?>/vendor/cookiechoices/cookiechoices.js"></script>
+        <script src="<?=PAGE_DOMAIN?>/app/templates/js/notify.js"></script>
         <script>
             $(document).ready(function(){
                 $('[data-toggle="tooltip"]').tooltip();
